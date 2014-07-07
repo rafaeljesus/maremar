@@ -1,0 +1,17 @@
+{
+  "name": "agencia",
+  "version": "0.0.1",
+  "homepage": "https://github.com/rafaeljesus/maremar.git",
+  "authors": [
+    "rafaeljesus <rafael_jesus86@hotmail.com>"
+  ],
+  "description": "Maremar Admin",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

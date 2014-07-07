@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Agencia tests</title>
+  <link rel="stylesheet" media="all" href="../../../node_modules/mocha/mocha.css">
+</head>
+<body>
+  <div id="mocha"><p><a href=".">Index</a></p></div>
+  <div id="messages"></div>
+  <div id="fixtures"></div>
+
+  <script src="../../../node_modules/mocha/mocha.js"></script>
+  <script src="../../../node_modules/chai/chai.js"></script>
+  <script>mocha.setup('bdd')</script>
+
+  <script src="../../bower_components/angular/angular.js"></script>
+  <script src="../../bower_components/angular-resource/angular-resource.js"></script>
+  <script src="../../bower_components/angular-route/angular-route.js"></script>
+  <script src="../../bower_components/angular-mocks/angular-mocks.js"></script>
+
+  <script src="../app/app.js"></script>
+
+  <script src="../app/services/auth.js"></script>
+  <script src="../app/services/session.js"></script>
+  <script src="../app/services/user.js"></script>
+
+  <script src="../app/controllers/main.js"></script>
+  <script src="../app/controllers/signin.js"></script>
+  <script src="../app/controllers/signup.js"></script>
+  <script src="../app/controllers/settings.js"></script>
+
+  <script src="controllers/signinSpec.js"></script>
+  <script src="controllers/signupSpec.js"></script>
+  <script src="controllers/settingsSpec.js"></script>
+  <script src="services/authSpec.js"></script>
+  <script>mocha.run();</script>
+</body>
+</html>

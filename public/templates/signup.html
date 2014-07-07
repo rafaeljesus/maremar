@@ -1,0 +1,43 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h1>Cadastrar</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div ng-controller="SignupController">
+          <form role="form" name="signupForm" ng-submit="register()">
+            <label>Name</label>
+            <div class="form-group">
+              <input type="text" class="form-control" ng-model="user.name" required id="name" placeholder="Digite seu nome" />
+              <span class="input-icon fui-user"></span>
+            </div>
+            <label>Email</label>
+            <div class="form-group">
+              <input type="email" class="form-control" ng-model="user.email" required id="email" placeholder="Digite seu email" />
+              <span class="input-icon fui-mail"></span>
+            </div>
+            <label>Senha</label>
+            <div class="form-group">
+              <input type="password" class="form-control" ng-model="user.password" required id="password" placeholder="Digite sua senha">
+              <span class="input-icon fui-lock"></span>
+            </div>
+            <button type="submit" class="btn btn-danger btn-embossed btn-hg pull-right">Cadastrar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h4>Já possui conta? Cadastre-se agora!</h4>
+        <br>
+        <p>Estamos felizes por ter gostado do novo sistema da Maremar, efetue o login aqui.</p>
+        <a class="btn btn-primary btn-embossed btn-lg pull-right" href="/entrar">Entrar</a>
+      </div>
+    </div>
+  <div>
+</div>
