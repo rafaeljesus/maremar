@@ -8,21 +8,36 @@
     <div class="panel panel-default">
       <div class="panel-body">
         <div ng-controller="SignupController">
-          <form role="form" name="signupForm" ng-submit="register()">
-            <label>Name</label>
-            <div class="form-group">
-              <input type="text" class="form-control" ng-model="user.name" required id="name" placeholder="Digite seu nome" />
-              <span class="input-icon fui-user"></span>
+          <form role="form" name="signupForm" ng-submit="register(signupForm)" novalidate>
+            <div class="form-group" ng-class="{ 'has-success': signupForm.name.$valid && submitted, 'has-error': signupForm.name.$invalid && submitted }">
+              <label>Name</label>
+              <div class="form-group">
+                <input type="text" class="form-control" ng-model="user.name" required name="name" placeholder="Digite seu nome" />
+                <span class="input-icon fui-user"></span>
+                <p class="help-block" ng-show="signupForm.name.$error.required && submitted">
+                  Nome é campo obrigatório
+                </p>
+              </div>
             </div>
-            <label>Email</label>
-            <div class="form-group">
-              <input type="email" class="form-control" ng-model="user.email" required id="email" placeholder="Digite seu email" />
-              <span class="input-icon fui-mail"></span>
+            <div class="form-group" ng-class="{ 'has-success': signupForm.email.$valid && submitted, 'has-error': signupForm.email.$invalid && submitted }">
+              <label>Email</label>
+              <div class="form-group">
+                <input type="email" class="form-control" ng-model="user.email" required name="email" placeholder="Digite seu email" />
+                <span class="input-icon fui-mail"></span>
+                <p class="help-block" ng-show="signupForm.email.$error.required && submitted">
+                  Email é campo obrigatório
+                </p>
+              </div>
             </div>
-            <label>Senha</label>
-            <div class="form-group">
-              <input type="password" class="form-control" ng-model="user.password" required id="password" placeholder="Digite sua senha">
-              <span class="input-icon fui-lock"></span>
+            <div class="form-group" ng-class="{ 'has-success': signupForm.password.$valid && submitted, 'has-error': signupForm.password.$invalid && submitted }">
+              <label>Senha</label>
+              <div class="form-group">
+                <input type="password" class="form-control" ng-model="user.password" required ng-minlength="6" name="password" placeholder="Digite sua senha">
+                <span class="input-icon fui-lock"></span>
+                <p class="help-block" ng-show="signupForm.password.$error.required && submitted">
+                  Senha deve ter no mínimo 6 caracteres
+                </p>
+              </div>
             </div>
             <button type="submit" class="btn btn-danger btn-embossed btn-hg pull-right">Cadastrar</button>
           </form>

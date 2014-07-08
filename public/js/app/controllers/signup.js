@@ -2,7 +2,9 @@
 
 mrm.controller('SignupController', function($scope, Auth, $location) {
 
-  $scope.register = function() {
+  $scope.register = function(form) {
+    $scope.submitted = true;
+    if (!form.$valid) return;
     var options = {
       user: {
         name: $scope.user.name,

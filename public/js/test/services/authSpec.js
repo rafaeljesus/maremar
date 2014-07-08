@@ -2,16 +2,16 @@ var expect = chai.expect;
 
 describe('AuthSpec', function() {
 
-  var auth, http, rootScope;
+  var auth, http, sessionStorage;
 
   beforeEach(function() {
     module('mrm');
   });
 
-  beforeEach(inject(function(Auth, _$httpBackend_, $rootScope) {
+  beforeEach(inject(function(Auth, _$httpBackend_, $sessionStorage) {
     auth = Auth;
     http = _$httpBackend_;
-    rootScope = $rootScope;
+    sessionStorage = $sessionStorage;
   }));
 
   afterEach(function() {
@@ -24,8 +24,8 @@ describe('AuthSpec', function() {
     http.when('POST', '/users').respond(options);
     http.expectPOST('/users').respond(200, options);
     auth.register(options, function(user) {
-      expect(rootScope.currentUser).to.not.be.an('undefined');
-      expect(rootScope.currentUser.name).to.equal(options.name);
+      expect(sessionStorage.currentUser).to.not.be.an('undefined');
+      expect(sessionStorage.currentUser.name).to.equal(options.name);
       expect(auth.isLoggedIn()).to.be.true;
       done();
     });
@@ -37,8 +37,8 @@ describe('AuthSpec', function() {
     http.when('POST', '/session').respond(options);
     http.expectPOST('/session').respond(200, options);
     auth.authenticate(options, function() {
-      expect(rootScope.currentUser).to.not.be.an('undefined');
-      expect(rootScope.currentUser.name).to.equal(options.name);
+      expect(sessionStorage.currentUser).to.not.be.an('undefined');
+      expect(sessionStorage.currentUser.name).to.equal(options.name);
       expect(auth.isLoggedIn()).to.be.true;
       done();
     });

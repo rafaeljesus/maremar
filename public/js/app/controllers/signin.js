@@ -2,7 +2,9 @@
 
 mrm.controller('SigninController', function($scope, Auth, $location) {
 
-  $scope.authenticate = function() {
+  $scope.authenticate = function(form) {
+    $scope.submitted = true;
+    if (!form.$valid) return;
     var options = {
       user: {
         email: $scope.user.email,

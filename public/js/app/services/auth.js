@@ -1,15 +1,13 @@
 'use strict';
 
-mrm.factory('Auth', function Auth($location, $rootScope, Session, User) {
-
-  $rootScope.currentUser;
+mrm.factory('Auth', function Auth($location, $rootScope, $sessionStorage, Session, User) {
 
   return {
 
     register: function(user, cb) {
       var callback = cb || angular.noop;
       return User.save(user, function(user) {
-          $rootScope.currentUser = user;
+          $sessionStorage.currentUser = user;
           $rootScope.$broadcast('user:loggedIn');
           return callback(user);
         },
@@ -21,7 +19,7 @@ mrm.factory('Auth', function Auth($location, $rootScope, Session, User) {
     authenticate: function(user, cb) {
       var callback = cb || angular.noop;
       return Session.save(user, function(user) {
-        $rootScope.currentUser = user;
+        $sessionStorage.currentUser = user;
         $rootScope.$broadcast('user:loggedIn');
         return callback();
       }, function(err) {
@@ -32,7 +30,7 @@ mrm.factory('Auth', function Auth($location, $rootScope, Session, User) {
     logout: function(cb) {
       var callback = cb || angular.noop;
       return Session.delete(function() {
-          $rootScope.currentUser = null;
+          $sessionStorage.currentUser = null;
           $rootScope.$broadcast('user:logout');
           return callback();
         },
@@ -59,7 +57,7 @@ mrm.factory('Auth', function Auth($location, $rootScope, Session, User) {
     },
 
     isLoggedIn: function() {
-      var user = $rootScope.currentUser;
+      var user = $sessionStorage.currentUser;
       return !!user;
     }
 

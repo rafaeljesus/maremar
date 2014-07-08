@@ -27,7 +27,7 @@ describe('SignupControllerSpec', function() {
     scope.user = { name: 'valid name', email: 'valid@email.com', password: '123456' };
     http.when('POST', '/users').respond(scope.user);
     http.expectPOST('/users').respond(200, scope.user);
-    scope.register();
+    scope.register({ $valid: true });
     http.flush();
     done();
     expect(auth.isLoggedIn()).to.be.true;
