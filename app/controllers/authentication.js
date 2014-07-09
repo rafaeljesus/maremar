@@ -35,8 +35,15 @@ module.exports = function(app){
         if (err) return res.json(401, err);
         res.json(200);
       });
+    },
+
+    logout: function(req, res) {
+      req.session.destroy();
+      res.json(200);
     }
+
   };
 
   return AuthController;
+  
 };

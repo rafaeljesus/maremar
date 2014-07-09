@@ -1,9 +1,10 @@
-mrm.directive('navbarBtnSignout', function() {
+mrm.directive('navbarBtnSignout', function($compile, Auth) {
 
-  var template = '<a class="btn btn-embossed btn-danger" href="javascript:void(0);"><span class="glyphicon glyphicon-log-out"></span> Sair</a>';
+  var template = '<button class="btn btn-embossed btn-danger"><span class="glyphicon glyphicon-log-out"></span> Sair</button>';
 
   return {
     restrict: 'AE',
+    replace: true,
     link: function(scope, el, attrs) {
       scope.$on('user:loggedIn', function() {
         el.html(template);

@@ -19,11 +19,4 @@ var mrm = angular
         }
       };
     }]);
-  })
-  .run(function ($rootScope, $location, Auth) {
-    $rootScope.$on('$routeChangeStart', function (event, next) {
-      if (!next.authenticate && !Auth.isLoggedIn()) {
-        $location.path('/entrar');
-      }
-    });
   });

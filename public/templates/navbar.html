@@ -9,10 +9,10 @@
     <ul class="nav navbar-nav">
       <li navbar-link-notifications></li>
     </ul>
-    <form class="navbar-form navbar-right" action="#" role="search">
+    <div class="navbar-form navbar-right">
       <div navbar-btn-signin></div>
-      <div navbar-btn-signout></div>
-    </form>
+      <div navbar-btn-signout ng-controller="SignoutController" ng-click="logout()"></div>
+    </div>
     <div navbar-search></div>
   </div><!-- /.navbar-collapse -->
 </nav><!-- /navbar -->
