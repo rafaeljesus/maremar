@@ -13,7 +13,7 @@ mrm.controller('SignupController', function($scope, Auth, $location) {
       }
     }
     Auth.register(options).then(function() {
-      $location.path('/');
+      $location.path('/home');
     }).catch(function(err) {
       err = err.data;
     });

@@ -21,7 +21,7 @@ mrm.directive('navbarSearch', function($compile, Auth) {
         $compile(el.html())(scope);
       });
       scope.$on('user:logout', function() {
-        el.remove();
+        el.children().remove();
       });
     }
   };

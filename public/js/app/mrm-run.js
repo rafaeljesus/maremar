@@ -15,3 +15,15 @@ mrm.run(function($rootScope, $location, Auth) {
   });
 
 });
+
+$(function() {
+
+  setTimeout(function() {
+    $(':checkbox').checkbox();
+    $('ul.nav-pills li a').click(function (e) {
+      $('ul.nav-pills li.active').removeClass('active');
+      $(this).parent('li').addClass('active');
+    });
+  }, 100);
+
+});

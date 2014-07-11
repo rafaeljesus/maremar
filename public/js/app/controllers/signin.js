@@ -12,7 +12,7 @@ mrm.controller('SigninController', function($scope, Auth, $location) {
       }
     }
     Auth.authenticate(options).then(function() {
-      $location.path('/');
+      $location.path('/home');
     }).catch(function(err) {
       err = err.data;
       $scope.errors.other = err.message;

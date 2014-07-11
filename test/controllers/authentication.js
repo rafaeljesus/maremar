@@ -7,7 +7,7 @@ describe('Auth Controller', function() {
 
   var currentUser = null;
 
-  beforeEach(function(done){
+  beforeEach(function(done) {
     var options = {
       name: 'userTest',
       password: 'userTestPassword',
@@ -27,7 +27,7 @@ describe('Auth Controller', function() {
     });
   });
 
-  it('when user is valid then authenticate', function(done){
+  it('when user is valid then authenticate', function(done) {
     var options = { user: { email: currentUser.email, password: 'userTestPassword' } };
     request
       .post('/session')
@@ -42,7 +42,7 @@ describe('Auth Controller', function() {
       });
   });
 
-  it('when user is valid then register', function(done){
+  it('when user is valid then register', function(done) {
     var options = {
       user: {
         name: 'User Test First Name',
@@ -63,7 +63,7 @@ describe('Auth Controller', function() {
       });
   });
 
-  it('should change a existing password', function(done){
+  it('should change a existing password', function(done) {
     var options = {
       user: {
         id: currentUser.id,
@@ -74,6 +74,20 @@ describe('Auth Controller', function() {
       .put('/users/' + currentUser.id)
       .set('Accept', 'application/json')
       .send(options)
+      .expect('Content-Type', /json/)
+      .expect(200)
+      .end(function(err, res) {
+        if (err) return done(err);
+        expect(res.status).to.equal(200);
+        done();
+      });
+  });
+
+  it('when user is logged in then logout', function(done) {
+    request
+      .delete('/session/')
+      .set('Accept', 'application/json')
+      .send({ user: { id: currentUser.id }})
       .expect('Content-Type', /json/)
       .expect(200)
       .end(function(err, res) {
