@@ -3,7 +3,7 @@
 mrm.config(function ($routeProvider) {
 
   $routeProvider.when('/notificacoes', {
-    templateUrl: 'templates/settings.html',
+    templateUrl: '/templates/settings.html',
     controller: 'SettingsController'
   })
 

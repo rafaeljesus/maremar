@@ -79,3 +79,21 @@ module.exports = function(app) {
 
   return db.model('users', User);
 };
+
+/*
+veiculo
+- foto
+- nome
+- nome motorista
+- capacidade total
+- acentos
+- passeios
+- lastUpdateAt
+- createdAt
+
+passeio
+- veiculo
+- horario ida
+- horario volta
+- createdAt
+- lastupdatedAt*/

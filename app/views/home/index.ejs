@@ -25,16 +25,11 @@
 
     <div class="container">
       <div class="row">
-
-        <div ng-include src="'templates/navbar.html'"></div>
-
-        <div class="row">
-          <div navbar-vertical></div>
-          <div ng-view></div>
-        </div>
-
-        <div ng-include src="'templates/footer.html'"></div>
+        <div ng-include src="'/templates/navbar.html'"></div>
+        <div navbar-vertical></div>
+        <div ng-view></div>
       </div>
+      <div ng-include src="'/templates/footer.html'"></div>
     </div>
 
     <script src="bower_components/flat-ui/js/jquery-1.10.2.min.js"></script>

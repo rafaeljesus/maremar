@@ -1,5 +1,5 @@
 'use strict';
 
-mrm.controller('NewTripController', function() {
+mrm.controller('NewTripController', function($scope) {
 
 });
