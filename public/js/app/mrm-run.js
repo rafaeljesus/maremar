@@ -9,21 +9,12 @@ mrm.run(function($rootScope, $location, Auth) {
   }
 
   $rootScope.$on('$routeChangeStart', function (event, next) {
+    if (next.onRender) {
+      next.onRender();
+    }
     if (!next.authenticate && !Auth.isLoggedIn()) {
       $location.path('/entrar');
     }
   });
-
-});
-
-$(function() {
-
-  setTimeout(function() {
-    $(':checkbox').checkbox();
-    $('ul.nav-pills li a').click(function (e) {
-      $('ul.nav-pills li.active').removeClass('active');
-      $(this).parent('li').addClass('active');
-    });
-  }, 100);
 
 });
