@@ -2,7 +2,7 @@
 
 mrm.config(function ($routeProvider) {
 
-  $routeProvider.when('/vehicles/new', {
+  $routeProvider.when('/veiculos/novo', {
     templateUrl: '/templates/vehicles-new.html',
     controller: 'NewVehicleController'
   });
