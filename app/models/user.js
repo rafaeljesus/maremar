@@ -85,8 +85,7 @@ veiculo
 - foto
 - nome
 - nome motorista
-- capacidade total
-- acentos
+- capacidade
 - passeios
 - lastUpdateAt
 - createdAt

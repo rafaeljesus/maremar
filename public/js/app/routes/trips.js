@@ -5,6 +5,7 @@ mrm.config(function ($routeProvider) {
   $routeProvider.when('/passeios', {
 
     templateUrl: 'templates/trips.html',
+    controller: 'TripsController',
 
     // that's I prefer backbone for dynaminc dom rendering
     onRender: function() {
