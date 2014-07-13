@@ -11,6 +11,21 @@ mrm.directive('navbarVertical', function($compile, Auth) {
       '</ul>' +
     '</div>';
 
+  var initFlatuiWrapers = function() {
+    setTimeout(function() {
+      $(':checkbox').checkbox();
+      $('[data-toggle="tooltip"]').tooltip();
+      $('ul.nav-pills li a').click(function (e) {
+        $('ul.nav-pills li.active').removeClass('active');
+        $(this).parent('li').addClass('active');
+      });
+      $('.nav-tabs').click(function (e) {
+        e.preventDefault();
+        $(this).tab('show');
+      });
+    }, 30);
+  };
+
   return {
     restrict: 'AE',
     replace: true,
@@ -18,16 +33,7 @@ mrm.directive('navbarVertical', function($compile, Auth) {
       scope.$on('user:loggedIn', function() {
         el.html(template);
         $compile(el.html())(scope);
-        $(':checkbox').checkbox();
-        $('[data-toggle="tooltip"]').tooltip();
-        $('ul.nav-pills li a').click(function (e) {
-          $('ul.nav-pills li.active').removeClass('active');
-          $(this).parent('li').addClass('active');
-        });
-        $('.nav-tabs').click(function (e) {
-          e.preventDefault();
-          $(this).tab('show');
-        });
+        initFlatuiWrapers();
       });
       scope.$on('user:logout', function() {
         el.children().remove();
