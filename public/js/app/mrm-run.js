@@ -9,9 +9,6 @@ mrm.run(function($rootScope, $location, Auth) {
   }
 
   $rootScope.$on('$routeChangeStart', function (event, next) {
-    if (next.onRender) {
-      next.onRender();
-    }
     if (!next.authenticate && !Auth.isLoggedIn()) {
       $location.path('/entrar');
     }

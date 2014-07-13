@@ -64,7 +64,7 @@ describe('AuthSpec', function() {
     var expectedUser = { name: 'valid name', email: 'valid@gmail.com', password: '654321' }
     , oldPassword = '123456'
     , newPassword = expectedUser.password;
-    http.when('PUT', '/users').respond(expectedUser);
+    http.when('PUT', '/users').respond(200, expectedUser);
     http.expectPUT('/users').respond(200, expectedUser);
     auth.changePassword(oldPassword, newPassword, function(user) {
       expect(user).to.not.be.an('undefined');
