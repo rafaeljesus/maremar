@@ -21,6 +21,11 @@ module.exports = function(app) {
     password: {
       type: String,
       require: true
+    },
+    createdAt: Date,
+    updatedAt: {
+      type: Date,
+      default: Date.now
     }
   });
 
@@ -81,15 +86,6 @@ module.exports = function(app) {
 };
 
 /*
-veiculo
-- foto
-- nome
-- nome motorista
-- capacidade
-- passeios
-- lastUpdateAt
-- createdAt
-
 passeio
 - veiculo
 - horario ida

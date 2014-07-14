@@ -23,7 +23,7 @@ mrm.directive('navbarVertical', function($compile, Auth) {
         e.preventDefault();
         $(this).tab('show');
       });
-    }, 30);
+    }, 50);
   };
 
   return {
