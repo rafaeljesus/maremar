@@ -4,9 +4,9 @@ module.exports = function(app) {
   , Schema = require('mongoose').Schema
   ;
 
-  var vehicle = new Schema({
-    photo: {
-      type: Buffer,
+  var Vehicle = new Schema({
+    picture: {
+      data: Buffer,
       contentType: String
     },
     name: {
@@ -20,6 +20,6 @@ module.exports = function(app) {
     }
   });
 
-  return db.model('vehicles', vehicle);
+  return db.model('vehicles', Vehicle);
 
 };

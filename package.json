@@ -29,7 +29,8 @@
     "connect-redis": "~2.0.0",
     "ejs": "~1.0.0",
     "express": "~4.5.0",
-    "mongoose": "~3.8.12"
+    "mongoose": "~3.8.12",
+    "multiparty": "~3.3.0"
   },
   "devDependencies": {
     "mocha": "*",

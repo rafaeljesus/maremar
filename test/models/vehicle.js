@@ -1,13 +1,15 @@
 var app = require('../../app')
+, fs = require('fs')
 , Vehicle = app.models.vehicle
 , expect = require('chai').expect;
 
 describe('Vehicle', function() {
 
-  var vehicle = null;
+  var vehicle = null, photoPath = 'public/bower_components/flat-ui/images/exaple-image.jpg';
 
   beforeEach(function(done) {
     var options = {
+      photo: photoPath,
       name: 'jippe',
       driver: 'driver 1',
       capacity: 12
