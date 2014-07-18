@@ -1,9 +1,9 @@
 'use strict';
 
-mrm.controller('NewVehicleController', function($scope, $location, Vehicle) {
+mrm.controller('NewVehicleController', function($scope, $location, $rootScope) {
 
-  $scope.uploadComplete = function(content) {
-    console.log(content); 
+  $scope.uploadComplete = function(vehicle) {
+    $location.path('/veiculos/' + vehicle._id);
   };
 
 });

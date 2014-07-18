@@ -6,7 +6,7 @@ module.exports = function(app) {
 
   var Vehicle = new Schema({
     picture: {
-      data: Buffer,
+      filename: String,
       contentType: String
     },
     name: {

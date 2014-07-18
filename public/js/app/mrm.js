@@ -1,7 +1,7 @@
 'use strict';
 
 var mrm = angular
-  .module('mrm', ['ngResource', 'ngRoute', 'ngStorage'])
+  .module('mrm', ['ngResource', 'ngRoute', 'ngStorage', 'ngUpload'])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
 
     $routeProvider.otherwise({ redirectTo: '/' });

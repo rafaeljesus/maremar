@@ -4,7 +4,7 @@
   <div class="panel panel-default">
     <div class="panel-body">
       <div ng-controller="NewVehicleController">
-        <form ng-upload="uploadComplete(content)" action="/vehicles" enctype="multipart/form-data" method="post" name="form">
+        <form ng-upload="uploadComplete(content)" action="/vehicles" name="form">
           <div class="form-group" ng-class="{ 'has-success': form.name.$valid && submitted, 'has-error': form.name.$invalid && submitted }">
             <label>Foto</label>
             <div class="form-group">
@@ -38,7 +38,7 @@
               </p>
             </div>
           </div>
-          <button type="submit" class="btn btn-primary btn-embossed btn-lg pull-right" ng-disabled="$isUploading">Salvar</button>
+          <button type="submit" class="btn btn-primary btn-embossed btn-lg pull-right">Salvar</button>
         </form>
       </div>
     </div>
