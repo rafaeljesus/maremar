@@ -1,37 +1,26 @@
 <div class="col-md-8">
   <div class="text-center">
-    <a class="btn btn-embossed btn-default btn-lg" href="/veiculos/novo"> Cadastra Veículo</a>
+    <a class="btn btn-embossed btn-default btn-lg" href="/veiculos/novo"> Cadastrar Veículo</a>
   </div>
-  <blockquote>
-    <h5><a href="/veiculos/{{vehicle.id}}">Jipe 1</a></h5>
-    <span>Motorista 1</span><br>
-    <span>12 lugares</span><br>
-    <span>120 passeios realizados</span><br>
-    <small>Ultima Atualização: 01/01/2012 - 12:00</small>
-  </blockquote>
-  <hr>
-  <blockquote>
-    <h5>Jipe 2</h5>
-    <span>Motorista 2</span><br>
-    <span>12 lugares</span><br>
-    <span>33 passeios realizados</span><br>
-    <small>Ultima Atualização: 01/01/2012 - 12:00</small>
-  </blockquote>
-  <hr>
-  <blockquote>
-    <h5>Flexboat</h5>
-    <span>Motorista flex</span><br>
-    <span>18 lugares</span><br>
-    <span>478 passeios realizados</span><br>
-    <small>Ultima Atualização: 01/01/2012 - 12:00</small>
-  </blockquote>
-  <hr>
-  <blockquote>
-    <h5>Van</h5>
-    <span>Motorista van</span><br>
-    <span>16 lugares</span><br>
-    <span>221 passeios realizados</span><br>
-    <small>Ultima Atualização: 01/01/2012 - 12:00</small>
+  <div ng-controller="VehiclesController" ng-init="findAll()">
+    <blockquote ng-repeat="vehicle in vehicles">
+      <hr>
+      <div class="media">
+        <a class="pull-left" href="javascript:void(0);">
+          <img class="media-object vehicle-avatar img-circle" ng-src="{{vehicle && vehicle.imgUrl || ''}}">
+        </a>
+        <div class="media-body">
+          <h4>
+            <a class="media-heading" href="/veiculos/{{vehicle._id}}">
+              <span>{{vehicle.name}}</span>
+            </a>
+          </h4>
+          <span>Motorista</span> {{vehicle.driver}}<br>
+          <span>Capacidade máxima</span> {{vehicle.capacity}} <span>lugares</span> <br>
+        </div>
+      </div>
+    </div>
+    <hr>
   </blockquote>
   <div class="pagination">
     <ul>

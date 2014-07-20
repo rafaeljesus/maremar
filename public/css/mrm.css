@@ -3,13 +3,16 @@
 .nav-pills > li.active > a:focus {
   background-color: #16A085 !important;
 }
-
 ul {
     list-style-type: none !important;
     margin: 0 !important;
     padding: 0 !important;
 }
-
 li {
     display: inline !important;
+}
+.vehicle-avatar {
+  max-width: 130px;
+  max-height: 130px;
+  border-radius: 10%;
 }

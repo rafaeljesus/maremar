@@ -5,15 +5,10 @@ mrm.factory('Vehicle', function Vehicle($resource) {
   return $resource('/vehicles/:id', {
     id: '@id'
   }, {
-    update: {
-      method: 'PUT',
-      params: {}
-    },
+    update: { method: 'PUT' },
     get: {
       method: 'GET',
-      params: {
-        id: 'me'
-      }
+      params: { id: 'me' }
     }
   });
 });

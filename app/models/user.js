@@ -6,27 +6,18 @@ module.exports = function(app) {
   ;
 
   var User = Schema({
-    name: {
-      type: String,
-      required: true
-    },
-    email: {
-      type: String,
-      required: true,
-      trim: true,
-      unique: true,
-      match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Email inválido'],
-      index: { unique: true }
-    },
-    password: {
-      type: String,
-      require: true
-    },
-    createdAt: Date,
-    updatedAt: {
-      type: Date,
-      default: Date.now
-    }
+    name: { type: String, required: true }
+    , email: {
+        type: String,
+        required: true,
+        trim: true,
+        unique: true,
+        match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Email inválido'],
+        index: { unique: true }
+      }
+    , password: { type: String, require: true }
+    , createdAt: Date
+    , updatedAt: Date
   });
 
   User.statics.register = function(user, cb) {
@@ -81,6 +72,15 @@ module.exports = function(app) {
       });*/
     });
   };
+
+  User.pre('save', function(next) {
+    var now = new Date();
+    this.updatedAt = now;
+    if (!this.createdAt) {
+      this.createdAt = now;
+    }
+    next();
+  });
 
   return db.model('users', User);
 };
