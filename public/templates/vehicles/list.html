@@ -1,10 +1,6 @@
 <div class="col-md-8">
-  <div class="text-center">
-    <a class="btn btn-embossed btn-default btn-lg" href="/veiculos/novo"> Cadastrar Veículo</a>
-  </div>
   <div ng-controller="VehiclesController" ng-init="findAll()">
     <blockquote ng-repeat="vehicle in vehicles">
-      <hr>
       <div class="media">
         <a class="pull-left" href="javascript:void(0);">
           <img class="media-object vehicle-avatar img-circle" ng-src="{{vehicle && vehicle.imgUrl || ''}}">
@@ -39,4 +35,7 @@
 </div>
 
 <div class="col-md-2">
+  <div class="pull-right">
+    <a class="btn btn-embossed btn-primary btn-lg" href="/veiculos/novo"> Cadastrar</a>
+  </div>
 </div>

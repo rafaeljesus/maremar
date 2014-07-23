@@ -6,4 +6,8 @@ mrm.controller('NewVehicleController', function($scope, $location, $rootScope) {
     $location.path('/veiculos/' + vehicle._id);
   };
 
+  $scope.validate = function() {
+    $scope.submitted = true;
+  };
+
 });

@@ -6,6 +6,5 @@ module.exports = function(app) {
   app.get('/vehicles', vehicle.index);
   app.get('/vehicles/:id', vehicle.show);
   app.get('/vehicles/image/:file', vehicle.image);
-  app.post('/vehicles', vehicle.create);
-  app.put('/vehicles/:id', vehicle.update);
+  app.post('/vehicles', vehicle.save);
 };

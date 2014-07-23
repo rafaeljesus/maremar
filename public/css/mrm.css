@@ -13,6 +13,25 @@ li {
 }
 .vehicle-avatar {
   max-width: 130px;
-  max-height: 130px;
+  max-height: 170px;
   border-radius: 10%;
+}
+.btn-file {
+    position: relative !important;
+    overflow: hidden !important;
+}
+.btn-file input[type=file] {
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
+    min-width: 100% !important;
+    min-height: 100% !important;
+    font-size: 999px !important;
+    text-align: right !important;
+    filter: alpha(opacity=0) !important;
+    opacity: 0 !important;
+    outline: none !important;
+    background: white !important;
+    cursor: inherit !important;
+    display: block !important;
 }

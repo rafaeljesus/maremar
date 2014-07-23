@@ -48,21 +48,29 @@ describe('Vehicle Controller', function() {
 
   it('when a existing vehicle is changed then update', function(done) {
     var newCapacity = 5;
-    var options = {
-      vehicle: {
-        name: vehicle.name,
-        driver: vehicle.driver,
-        capacity: newCapacity
-      }
-    };
     request
-      .put('/vehicles/' + vehicle._id)
-      .send(options)
+      .post('/vehicles')
+      .field('id', vehicle.id)
+      .field('name', vehicle.name)
+      .field('driver', vehicle.driver)
+      .field('capacity', vehicle.capacity)
+      .attach('file', imgPath)
       .expect(200)
       .end(function(err, res) {
         if (err) return done(err);
-        expect(res.body._id).to.not.equal(null);
         expect(vehicle.capacity).to.not.equal(newCapacity);
+        done();
+      });
+  });
+
+  it('when view vehicle then show', function(done) {
+    request
+      .get('/vehicles/' + vehicle.id)
+      .accept('application/json')
+      .expect(200)
+      .end(function(err, res) {
+        if (err) return done(err);
+        expect(vehicle.id).not.equal(res.id);
         done();
       });
   });

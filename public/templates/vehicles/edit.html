@@ -4,14 +4,26 @@
   <div class="panel panel-default">
     <div class="panel-body">
       <div ng-controller="EditVehicleController" ng-init="find()">
-        <form ng-submit="update(editForm)" name="editForm" novalidate>
+        <form ng-upload="updateComplete(content)" ng-submit="validate()" action="/vehicles" name="editForm" novalidate>
+          <input type="hidden" name="id" value="{{vehicle._id}}">
+          <div class="form-group">
+            <div class="row">
+              <div class="col-md-4">
+                <a href="javascript:void(0);">
+                  <img class="media-object vehicle-avatar img-circle" ng-src="{{vehicle && vehicle.imgUrl || ''}}">
+                </a>
+              </div>
+              <div class="col-md-3">
+                <span class="file-input btn btn-default btn-file">
+                  Upload&hellip; <input type="file" name="file">
+                </span>
+              </div>
+            </div>
+          </div>
           <div class="form-group" ng-class="{ 'has-success': editForm.name.$valid && submitted, 'has-error': editForm.name.$invalid && submitted }">
             <label>Nome</label>
             <div class="form-group">
               <input type="text" class="form-control" ng-model="vehicle.name" value={{vehicle.name}} required name="name" placeholder="Digite o nome do veículo">
-              <p class="help-block" ng-show="editForm.name.$error.required && submitted">
-                Nome é campo obrigatório
-              </p>
             </div>
           </div>
           <div class="form-group">
@@ -24,9 +36,6 @@
             <label>Capacidade</label>
             <div class="form-group">
               <input type="number" class="form-control" ng-model="vehicle.capacity" value="{{vehicle.capacity}}" required name="capacity" placeholder="Insira a capacidade de lugares do veículo">
-              <p class="help-block" ng-show="editForm.capacity.$error.required && submitted">
-                Capacidade é campo obrigatório
-              </p>
             </div>
           </div>
           <button type="submit" class="btn btn-primary btn-embossed btn-lg pull-right">Salvar</button>

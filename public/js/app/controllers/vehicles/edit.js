@@ -9,19 +9,12 @@ mrm.controller('EditVehicleController', function($scope, $routeParams, $location
     });
   };
 
-  $scope.update = function(form) {
+  $scope.updateComplete = function(vehicle) {
+    $location.path('/veiculos/' + vehicle._id);
+  };
+
+  $scope.validate = function() {
     $scope.submitted = true;
-    if (!form.$valid) return;
-    var options = {
-      vehicle: {
-        name: $scope.vehicle.name,
-        driver: $scope.vehicle.driver,
-        capacity: $scope.vehicle.capacity
-      }
-    }
-    Vehicle.update({ id: $routeParams.id }, options, function(vehicle) {
-      $location.path('/veiculos/' + vehicle._id);
-    });
   };
 
 });
