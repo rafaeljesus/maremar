@@ -30,6 +30,17 @@ describe('Vehicle Controller', function() {
     });
   });
 
+  it('when index page then return vehicles collection', function(done) {
+    request
+      .get('/vehicles')
+      .expect(200)
+      .end(function(err, res) {
+        if (err) return done(err);
+        expect(res.body[0]._id).to.be.equal(vehicle.id);
+        done();
+      })
+  }),
+
   it('when vehicle is valid then create', function(done) {
     request
       .post('/vehicles')
@@ -73,6 +84,21 @@ describe('Vehicle Controller', function() {
         expect(vehicle.id).not.equal(res.id);
         done();
       });
+  });
+
+  it('when image request then respond with buffer image', function(done) {
+    var newPath = process.env.HOME + '/exaple-image.jpg';
+    fs.rename('../fixtures/exaple-image.jpg', newPath, function(err) {
+      request
+        .get('/vehicles/image/' + 'exaple-image.jpg')
+        .expect(200)
+        .end(function(err, res) {
+          if (err) return done(err);
+          fs.unlink(newPath, function(err) {
+            done();
+          });
+        });
+    });
   });
 
 });
