@@ -84,11 +84,3 @@ module.exports = function(app) {
 
   return db.model('users', User);
 };
-
-/*
-passeio
-- veiculo
-- horario ida
-- horario volta
-- createdAt
-- lastupdatedAt*/

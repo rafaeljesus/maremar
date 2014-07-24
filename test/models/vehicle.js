@@ -5,11 +5,11 @@ var app = require('../../app')
 
 describe('Vehicle', function() {
 
-  var vehicle = null, photoPath = 'public/bower_components/flat-ui/images/exaple-image.jpg';
+  var vehicle = null;
 
   beforeEach(function(done) {
     var options = {
-      photo: photoPath,
+      picture: { filename: 'image-exaple.jpg', contentType: '' }
       name: 'jippe',
       driver: 'driver 1',
       capacity: 12
