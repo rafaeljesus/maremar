@@ -10,9 +10,9 @@ describe('Vehicle', function() {
   beforeEach(function(done) {
     var options = {
       picture: { filename: 'image-exaple.jpg', contentType: '' }
-      name: 'jippe',
-      driver: 'driver 1',
-      capacity: 12
+    , name: 'jippe'
+    , driver: 'driver 1'
+    , capacity: 12
     };
     Vehicle.create(options, function(err, doc) {
       if (err) return done(err);

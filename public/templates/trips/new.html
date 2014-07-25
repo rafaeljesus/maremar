@@ -3,19 +3,14 @@
 <div class="col-md-5">
   <div class="panel panel-default">
     <div class="panel-body">
-      <div ng-controller="NewTripController">
-        <form role="form" name="form" novalidate>
+      <div ng-controller="NewTripController" ng-init="allVehicles()">
+        <form role="form" name="form" ng-submit="create()" novalidate>
           <div class="form-group" ng-class="{ 'has-success': form.vehicle.$valid && submitted, 'has-error': form.vehicle.$invalid && submitted }">
             <div class="form-group">
-              <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Veículo<span class="caret"></span></button>
-                <span class="dropdown-arrow"></span>
-                <ul class="dropdown-menu">
-                  <li><a href="#fakelink">Jippe 1</a></li>
-                  <li><a href="#fakelink">Flex Boat</a></li>
-                  <li><a href="#fakelink">Escuna</a></li>
-                </u>
-              </div>
+              <select ui-select2 ng-model="trip.vehicle" data-placeholder="Selecione um Veículo">
+                <option value=""></option>
+                <option ng-repeat="vehicle in vehicles" value="{{vehicle._id}}">{{vehicle.name}}</option>
+              </select>
               <p class="help-block" ng-show="form.vehicle.$error.required && submitted">
                 Veículo é campo obrigatório
               </p>
@@ -24,7 +19,7 @@
           <div class="form-group" ng-class="{ 'has-success': form.startTime.$valid && submitted, 'has-error': form.startTime.$invalid && submitted }">
             <label>Partida</label>
             <div class="form-group">
-              <input type="date" class="form-control" ng-model="trip.startTime" required name="startTime" placeholder="Horário de Partida">
+              <input type="text" class="form-control" ng-model="trip.startTime" required name="startTime" placeholder="Horário de Partida">
               <span class="input-icon fui-time"></span>
               <p class="help-block" ng-show="(form.startTime.$error.minlength || form.startTime.$error.required) && submitted">
                 Horário de Partida é campo obrigatório
@@ -34,7 +29,7 @@
           <div class="form-group" ng-class="{ 'has-success': form.endTime.$valid && submitted, 'has-error': form.endTime.$invalid && submitted }">
             <label>Chegada</label>
             <div class="form-group">
-              <input type="date" class="form-control" ng-model="trip.endTime" required name="startTime" placeholder="Horário de Chegada">
+              <input type="text" class="form-control" ng-model="trip.endTime" required name="startTime" placeholder="Horário de Chegada">
               <span class="input-icon fui-time"></span>
               <p class="help-block" ng-show="(form.endTime.$error.minlength || form.endTime.$error.required) && submitted">
                 Horário de Chegada é campo obrigatório
