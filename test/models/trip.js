@@ -6,16 +6,23 @@ var app = require('../../app')
 
 describe('Trip', function() {
 
-  var trip = null, vehicle = null;
+  var trip = null;
 
   beforeEach(function(done) {
-    var photoPath = 'public/bower_components/flat-ui/images/exaple-image.jpg';
-    var options = { photo: photoPath, name: 'jippe', driver: 'driver 1', capacity: 12 };
-    Vehicle.create(options, function(err, doc) {
+    var newVehicle = {
+      picture: { filename: 'exaple-image.jpg', contentType: 'image/jpg' },
+      name: 'jippe',
+      driver: 'driver 1',
+      capacity: 12
+    };
+    Vehicle.create(newVehicle, function(err, vehicle) {
       if (err) return done(err);
-      vehicle = doc;
-      var options = { vehicle: vehicle, startTime: new Date(), endTime: new Date() };
-      Trip.create(options, function(err, doc) {
+      var newTrip = {
+        vehicle: { name: vehicle.name, driver: vehicle.driver, capacity: vehicle.capacity },
+        startTime: new Date(),
+        endTime: new Date()
+      };
+      Trip.create(newTrip, function(err, doc) {
         if (err) return done(err);
         trip = doc;
         done();
@@ -38,14 +45,12 @@ describe('Trip', function() {
     done();
   });
 
-  it('should successfully associate a vehicle to a trip', function(done) {
+  it('should successfully embed a vehicle to a trip', function(done) {
     Trip
       .findOne({ _id: trip._id })
-      .populate('vehicle')
       .exec(function(err, doc) {
         if (err) return done(err);
-        console.log(doc);
-        expect(doc.vehicle.name).to.not.equal(undefined);
+        expect(doc.vehicle).to.not.equal(undefined);
         done();
     });
   });

@@ -4,5 +4,6 @@ module.exports = function(app) {
 
   app.get('/trips', trip.index);
   app.post('/trips', trip.create);
+  app.put('/trips/:id', trip.update);
 
 };

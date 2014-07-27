@@ -5,7 +5,7 @@ module.exports = function(app) {
   ;
 
   var Trip = Schema({
-    vehicle: { type: Schema.Types.ObjectId, ref: 'vehicles' }
+    vehicle: { name: String, driver: String, capacity: Number }
     , startTime: Date
     , endTime: Date
     , createdAt: Date

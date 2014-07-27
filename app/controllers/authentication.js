@@ -3,7 +3,6 @@ module.exports = function(app){
   var User = app.models.user;
 
   var AuthController = {
-
     authenticate: function(req, res) {
       User.authenticate(req.body.user, function(err, user) {
         if (err) return res.json(403, err);
@@ -15,7 +14,6 @@ module.exports = function(app){
         res.json(req.session.user);
       });
     },
-
     register: function(req, res) {
       User.register(req.body.user, function(err, user) {
         if (err) return res.json(401, err);
@@ -27,7 +25,6 @@ module.exports = function(app){
         res.json(req.session.user);
       });
     },
-
     changePassword: function(req, res) {
       var userId = req.body.user.id
       , newPassword = req.body.user.password;
@@ -36,12 +33,10 @@ module.exports = function(app){
         res.json(200);
       });
     },
-
     logout: function(req, res) {
       req.session.destroy();
       res.json(200);
     }
-
   };
 
   return AuthController;
