@@ -17,8 +17,13 @@ describe('Trip', function() {
     };
     Vehicle.create(newVehicle, function(err, vehicle) {
       if (err) return done(err);
+      var seats = [];
+      for (var i = 0; i < newVehicle.capacity; ++i) {
+        seats.push({ checked: false });
+      }
       var newTrip = {
-        vehicle: { name: vehicle.name, driver: vehicle.driver, capacity: vehicle.capacity },
+        vehicle: { _id: vehicle._id, name: vehicle.name, driver: vehicle.driver, capacity: vehicle.capacity },
+        seats: seats,
         startTime: new Date(),
         endTime: new Date()
       };
@@ -45,7 +50,7 @@ describe('Trip', function() {
     done();
   });
 
-  it('should successfully embed a vehicle to a trip', function(done) {
+  it('should successfully embed vehicle to a trip', function(done) {
     Trip
       .findOne({ _id: trip._id })
       .exec(function(err, doc) {

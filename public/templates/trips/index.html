@@ -1,0 +1,54 @@
+<div class="col-md-8">
+  <div ng-controller="TripsController">
+    <blockquote ng-repeat="trip in trips">
+      <h5><a href="/passeios/{{trip._id}}/editar">{{trip.vehicle.name}}</a></h5>
+      <span> Saída ás {{trip.startTime}} e retorno ás {{trip.endTime}} <br>
+      <ul>
+        <li ng-repeat="seat in trip.seats">
+          <label class="checkbox" ng-click="sync(trip, seat, $index)">
+            <input type="checkbox" id="seat_{{trip._id}}" ng-checked="seat.checked" data-toggle="checkbox">
+            {{seat.checked ? 'Livre' : 'Ocupado'}}
+          </label>
+        </li>
+      </ul>
+      <small>Atualizado em {{trip.updatedAt}}</small>
+      <hr>
+    </blockquote>
+    <div class="pagination">
+      <ul>
+        <li class="previous">
+          <a href="#" class="fui-arrow-left"></a>
+        </li>
+        <li class="active"><a href="#fakelink">1</a></li>
+        <li><a href="#fakelink">2</a></li>
+        <li><a href="#fakelink">3</a></li>
+        <li><a href="#fakelink">4</a></li>
+        <li class="next">
+          <a href="#" class="fui-arrow-right"></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-2">
+  <div class="tabbable tabs-right">
+    <ul class="nav nav-tabs">
+      <li class="active">
+        <a href="/passeios" data-toggle="tab">
+          <span class="fui-location" data-placement="left" data-toggle="tooltip" title="Passeios"></span>
+        </a>
+      </li>
+      <li>
+        <a href="#1" data-toggle="tab">
+          <span class="fui-eye" data-placement="left" data-toggle="tooltip" title="Histórico"></span>
+        </a>
+      </li>
+      <li>
+        <a href="#2" data-toggle="tab">
+          <span class="glyphicon glyphicon-stats" data-placement="left" data-toggle="tooltip" title="Dashboard"></span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

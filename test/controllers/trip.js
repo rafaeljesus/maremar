@@ -10,7 +10,7 @@ describe('Trip Controller', function() {
 
   beforeEach(function(done) {
     var newTrip = {
-      vehicle: { name: 'jippe', driver: 'driver 1', capacity: 12 },
+      vehicle: { _id: '53d51e3c6d78d6b004866b95', name: 'jippe', driver: 'driver 1', capacity: 12 },
       startTime: new Date(),
       endTime: new Date()
     };
@@ -62,7 +62,7 @@ describe('Trip Controller', function() {
   it('should update a existing trip', function(done) {
     var options = {
       trip: {
-        vehicle: { name: 'schooner', driver: 'driver 1', capacity: 80 }
+        vehicle: { _id: '53d51e3c6d78d6b004866b95', name: 'schooner', driver: 'driver 1', capacity: 80 }
       }
     };
     request
@@ -77,16 +77,16 @@ describe('Trip Controller', function() {
       });
   });
 
-  it('when view vehicle then show', function() {
-    /*request
-      .get('/vehicles/' + vehicle.id)
+  it('should show a trip', function(done) {
+    request
+      .get('/trips/' + trip.id)
       .accept('application/json')
       .expect(200)
       .end(function(err, res) {
         if (err) return done(err);
-        expect(vehicle.id).not.equal(res.id);
+        expect(res.body._id).not.equal(undefined);
         done();
-      });*/
+      });
   });
 
 });

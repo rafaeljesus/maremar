@@ -3,7 +3,7 @@
 mrm.config(function ($routeProvider) {
 
   $routeProvider.when('/veiculos', {
-    templateUrl: '/templates/vehicles/list.html',
+    templateUrl: '/templates/vehicles/index.html',
     controller: 'VehiclesController'
   });
 

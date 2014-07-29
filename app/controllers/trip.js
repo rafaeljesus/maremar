@@ -19,11 +19,23 @@ module.exports = function(app) {
       var trip = req.body.trip
       , id = req.params.id;
       Trip.findByIdAndUpdate(id, { $set: trip }, function(err, doc) {
-        console.log(doc);
         if (err) return res.json(err);
         res.json(doc);
       });
-    }
+    },
+    sync: function(req, res) {
+      var trip = req.body.trip;
+      Trip.findByIdAndUpdate(trip._id, { $set: { 'seats.$': trip.seats } }, function(err, doc) {
+        res.json(doc);
+      });
+    },
+    show: function(req, res) {
+      var id = req.params.id;
+      Trip.findById(id, function(err, doc) {
+        if (err) return res.json(err);
+        res.json(doc);
+      });
+    },
   };
 
   return TripController;

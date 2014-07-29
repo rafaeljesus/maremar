@@ -5,9 +5,15 @@ module.exports = function(app) {
   ;
 
   var Trip = Schema({
-    vehicle: { name: String, driver: String, capacity: Number }
-    , startTime: Date
-    , endTime: Date
+    vehicle: {
+      _id: Schema.Types.ObjectId,
+      name: String,
+      driver: String,
+      capacity: Number
+    }
+    , seats: [{ checked: Boolean, _id: false }]
+    , startTime: String
+    , endTime: String
     , createdAt: Date
     , updatedAt: Date
   });
@@ -17,6 +23,11 @@ module.exports = function(app) {
     this.updatedAt = now;
     if (!this.createdAt) {
       this.createdAt = now;
+    }
+    if (this.seats.length == 0) {
+      for (var i = 0; i < this.vehicle.capacity; ++i) {
+        this.seats.push({ checked: false });
+      }
     }
     next();
   });

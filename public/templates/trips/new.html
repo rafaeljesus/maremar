@@ -4,7 +4,7 @@
   <div class="panel panel-default">
     <div class="panel-body">
       <div ng-controller="NewTripController" ng-init="allVehicles()">
-        <form role="form" name="form" ng-submit="create()" novalidate>
+        <form role="form" name="form" ng-submit="create(form)" novalidate>
           <div class="form-group" ng-class="{ 'has-success': form.vehicle.$valid && submitted, 'has-error': form.vehicle.$invalid && submitted }">
             <div class="form-group">
               <select ui-select2 ng-model="trip.vehicle" data-placeholder="Selecione um Veículo">
@@ -19,7 +19,7 @@
           <div class="form-group" ng-class="{ 'has-success': form.startTime.$valid && submitted, 'has-error': form.startTime.$invalid && submitted }">
             <label>Partida</label>
             <div class="form-group">
-              <input type="text" class="form-control" ng-model="trip.startTime" required name="startTime" placeholder="Horário de Partida">
+              <input type="text" class="form-control" ng-model="trip.startTime" required name="startTime" placeholder="Horário de partida HH:MM">
               <span class="input-icon fui-time"></span>
               <p class="help-block" ng-show="(form.startTime.$error.minlength || form.startTime.$error.required) && submitted">
                 Horário de Partida é campo obrigatório
@@ -29,7 +29,7 @@
           <div class="form-group" ng-class="{ 'has-success': form.endTime.$valid && submitted, 'has-error': form.endTime.$invalid && submitted }">
             <label>Chegada</label>
             <div class="form-group">
-              <input type="text" class="form-control" ng-model="trip.endTime" required name="startTime" placeholder="Horário de Chegada">
+              <input type="text" class="form-control" ng-model="trip.endTime" required name="startTime" placeholder="Horário de chegada HH:MM">
               <span class="input-icon fui-time"></span>
               <p class="help-block" ng-show="(form.endTime.$error.minlength || form.endTime.$error.required) && submitted">
                 Horário de Chegada é campo obrigatório
