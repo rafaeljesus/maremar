@@ -25,7 +25,7 @@ module.exports = function(app) {
     },
     sync: function(req, res) {
       var trip = req.body.trip;
-      Trip.findByIdAndUpdate(trip._id, { $set: { 'seats.$': trip.seats } }, function(err, doc) {
+      Trip.findByIdAndUpdate(trip._id, { $set: { 'seats': trip.seats } }, function(err, doc) {
         res.json(doc);
       });
     },
