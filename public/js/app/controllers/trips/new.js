@@ -23,7 +23,8 @@ mrm.controller('NewTripController', function($scope, Trip, Vehicle, $location) {
           _id: value._id,
           name: value.name,
           driver: value.driver,
-          capacity: value.capacity
+          capacity: value.capacity,
+          filename: value.picture.filename
         };
       });
     });

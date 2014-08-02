@@ -1,13 +1,15 @@
 <div class="col-md-1">
 </div>
+
 <div class="col-md-5">
   <div class="panel panel-default">
     <div class="panel-body">
+
       <div ng-controller="EditTripController">
         <form role="form" name="form" ng-submit="update(form)" novalidate>
           <div class="form-group" ng-class="{ 'has-success': form.vehicle.$valid && submitted, 'has-error': form.vehicle.$invalid && submitted }">
             <div class="form-group">
-              <select ui-select2 ng-model="trip.vehicle" name="vehicle" data-placeholder="Selecione um Veículo">
+              <select ui-select2="{ allowClear: true }" ng-model="trip.vehicle._id" name="vehicle" data-placeholder="Selecione um Veículo" required>
                 <option value=""></option>
                 <option ng-repeat="vehicle in vehicles" value="{{vehicle._id}}">{{vehicle.name}}</option>
               </select>
@@ -36,9 +38,13 @@
               </p>
             </div>
           </div>
-          <button type="submit" class="btn btn-primary btn-embossed btn-lg pull-right">Salvar</button>
+          <div class="pull-right">
+            <a href="/passeios" class="btn btn-default btn-embossed btn-lg">Voltar</a>
+            <button type="submit" class="btn btn-primary btn-embossed btn-lg">Salvar</button>
+          </div>
         </form>
       </div>
+
     </div>
   </div>
 </div>

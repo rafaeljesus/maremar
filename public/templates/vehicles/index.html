@@ -1,5 +1,9 @@
+<div class="col-md-5">
+  <a class="btn btn-embossed btn-primary btn-lg pull-right" href="/veiculos/novo"> Cadastrar</a>
+</div>
 <div class="col-md-8">
   <div ng-controller="VehiclesController" ng-init="findAll()">
+
     <blockquote ng-repeat="vehicle in vehicles">
       <div class="media">
         <a class="pull-left" href="javascript:void(0);">
@@ -18,6 +22,7 @@
     </div>
     <hr>
   </blockquote>
+
   <div class="pagination">
     <ul>
       <li class="previous">
@@ -35,7 +40,4 @@
 </div>
 
 <div class="col-md-2">
-  <div class="pull-right">
-    <a class="btn btn-embossed btn-primary btn-lg" href="/veiculos/novo"> Cadastrar</a>
-  </div>
 </div>

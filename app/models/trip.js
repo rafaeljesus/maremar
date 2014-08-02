@@ -7,6 +7,7 @@ module.exports = function(app) {
   var Trip = Schema({
     vehicle: {
       _id: Schema.Types.ObjectId,
+      filename: String,
       name: String,
       driver: String,
       capacity: Number
@@ -17,6 +18,13 @@ module.exports = function(app) {
     , createdAt: Date
     , updatedAt: Date
   });
+
+  Trip.statics.sync = function(trip, cb) {
+    return this.findByIdAndUpdate(trip._id, { $set: { 'seats': trip.seats } }, function(err, doc) {
+      if (err) return cb(err);
+      cb(null, doc);
+    });
+  };
 
   Trip.pre('save', function(next) {
     var now = new Date();

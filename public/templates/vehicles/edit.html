@@ -1,8 +1,10 @@
 <div class="col-md-1">
 </div>
+
 <div class="col-md-5">
   <div class="panel panel-default">
     <div class="panel-body">
+
       <div ng-controller="EditVehicleController" ng-init="find()">
         <form ng-upload="updateComplete(content)" ng-submit="validate()" action="/vehicles" name="editForm" novalidate>
           <input type="hidden" name="id" value="{{vehicle._id}}">
@@ -41,6 +43,7 @@
           <button type="submit" class="btn btn-primary btn-embossed btn-lg pull-right">Salvar</button>
         </form>
       </div>
+
     </div>
   </div>
 </div>

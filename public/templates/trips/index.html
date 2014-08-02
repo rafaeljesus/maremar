@@ -1,8 +1,23 @@
+<div class="col-md-5">
+  <a class="btn btn-embossed btn-primary btn-lg pull-right" href="/passeios/novo"> Cadastrar</a>
+</div>
 <div class="col-md-8">
   <div ng-controller="TripsController">
+
     <blockquote ng-repeat="trip in trips">
-      <h5><a href="/passeios/{{trip._id}}/editar">{{trip.vehicle.name}}</a></h5>
-      <span> Saída ás {{trip.startTime}} e retorno ás {{trip.endTime}} <br>
+      <div class="media">
+        <a class="pull-left" href="javascript:void(0);">
+          <img class="media-object vehicle-avatar img-circle" ng-src="{{trip.vehicle && 'http://localhost:3000/vehicles/image/' + trip.vehicle.filename || ''}}">
+        </a>
+        <div class="media-body">
+          <h5>
+            <div class="media-heading">
+              <a href="/passeios/{{trip._id}}/editar">{{trip.vehicle.name}}</a>
+            </div>
+          </h5>
+        </div>
+        <span> Saída ás {{trip.startTime}} e retorno ás {{trip.endTime}} <br>
+      </div>
       <ul>
         <li ng-repeat="seat in trip.seats">
           <label class="checkbox" ng-click="sync(trip, seat, $index)">
@@ -14,6 +29,7 @@
       <small>Atualizado em {{trip.updatedAt}}</small>
       <hr>
     </blockquote>
+
     <div class="pagination">
       <ul>
         <li class="previous">

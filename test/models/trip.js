@@ -17,13 +17,8 @@ describe('Trip', function() {
     };
     Vehicle.create(newVehicle, function(err, vehicle) {
       if (err) return done(err);
-      var seats = [];
-      for (var i = 0; i < newVehicle.capacity; ++i) {
-        seats.push({ checked: false });
-      }
       var newTrip = {
         vehicle: { _id: vehicle._id, name: vehicle.name, driver: vehicle.driver, capacity: vehicle.capacity },
-        seats: seats,
         startTime: new Date(),
         endTime: new Date()
       };
@@ -57,6 +52,16 @@ describe('Trip', function() {
         if (err) return done(err);
         expect(doc.vehicle).to.not.equal(undefined);
         done();
+    });
+  });
+
+  // FIXME throws Maximum call stack size exceeded only in tests
+  it('should successfully sync seats to all clients', function(done) {
+    trip.seats[0].checked = true;
+    Trip.sync(trip, function(err, doc) {
+      if (err) return done(err);
+      expect(doc.seats[0].checked).to.not.equal(trip.seats[0].checked);
+      done();
     });
   });
 
