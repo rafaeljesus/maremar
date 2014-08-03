@@ -1,8 +1,10 @@
 <div class="col-md-1">
 </div>
+
 <div class="col-md-5">
   <div class="panel panel-default">
     <div class="panel-body">
+
       <div ng-controller="NewTripController" ng-init="allVehicles()">
         <form role="form" name="form" ng-submit="create(form)" novalidate>
           <div class="form-group" ng-class="{ 'has-success': form.vehicle.$valid && submitted, 'has-error': form.vehicle.$invalid && submitted }">
@@ -42,6 +44,7 @@
           </div>
         </form>
       </div>
+      
     </div>
   </div>
 </div>

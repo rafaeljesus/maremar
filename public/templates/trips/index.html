@@ -1,6 +1,7 @@
 <div class="col-md-5">
-  <a class="btn btn-embossed btn-primary btn-lg pull-right" href="/passeios/novo"> Cadastrar</a>
+  <a class="btn btn-embossed btn-primary btn-lg pull-right" href="/passeios/novo"> Criar Passeio</a>
 </div>
+
 <div class="col-md-8">
   <div ng-controller="TripsController">
 
@@ -16,8 +17,7 @@
             </div>
           </h5>
         </div>
-        <span> Saída ás {{trip.startTime}} e retorno ás {{trip.endTime}} <br>
-      </div>
+        <span> Saída ás {{trip.startTime}} e retorno ás {{trip.endTime}} <br> </div>
       <ul>
         <li ng-repeat="seat in trip.seats">
           <label class="checkbox" ng-click="sync(trip, seat, $index)">
@@ -26,7 +26,7 @@
           </label>
         </li>
       </ul>
-      <small>Atualizado em {{trip.updatedAt}}</small>
+      <small>Atualizado por {{trip.lastSyncBy.name}} ás {{trip.updatedAt}}</small>
       <hr>
     </blockquote>
 

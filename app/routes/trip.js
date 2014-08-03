@@ -5,7 +5,6 @@ module.exports = function(app) {
   app.get('/trips', trip.index);
   app.get('/trips/:id', trip.show);
   app.post('/trips', trip.create);
-  app.post('/trips/sync', trip.sync);
   app.put('/trips/:id', trip.update);
 
 };

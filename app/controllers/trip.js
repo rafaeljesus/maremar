@@ -23,13 +23,6 @@ module.exports = function(app) {
         res.json(doc);
       });
     },
-    sync: function(req, res) {
-      var trip = req.body.trip;
-      Trip.sync(trip, function(err, doc) {
-        if (err) return res.json(500, err);
-        res.json(doc);
-      });
-    },
     show: function(req, res) {
       var id = req.params.id;
       Trip.findById(id, function(err, doc) {

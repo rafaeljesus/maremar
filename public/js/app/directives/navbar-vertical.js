@@ -13,8 +13,6 @@ mrm.directive('navbarVertical', function($compile, Auth) {
 
   var initFlatuiWrapers = function() {
     setTimeout(function() {
-      $(':checkbox').checkbox();
-      $('[data-toggle="tooltip"]').tooltip();
       $('ul.nav-pills li a').click(function (e) {
         $('ul.nav-pills li.active').removeClass('active');
         $(this).parent('li').addClass('active');

@@ -15,15 +15,22 @@ module.exports = function(app) {
     , seats: [{ checked: Boolean, _id: false }]
     , startTime: String
     , endTime: String
+    , lastSyncBy: { name: String, email: String }
     , createdAt: Date
     , updatedAt: Date
   });
 
   Trip.statics.sync = function(trip, cb) {
-    return this.findByIdAndUpdate(trip._id, { $set: { 'seats': trip.seats } }, function(err, doc) {
-      if (err) return cb(err);
-      cb(null, doc);
-    });
+    return this.findByIdAndUpdate(trip._id, {
+        $set: {
+          'lastSyncBy': trip.lastSyncBy,
+          'seats': trip.seats,
+          'updatedAt': new Date()
+          }
+        }, function(err, doc) {
+          if (err) return cb(err);
+          cb(null, doc);
+        });
   };
 
   Trip.pre('save', function(next) {

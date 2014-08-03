@@ -1,7 +1,7 @@
 'use strict';
 
-mrm.factory('SyncTrip', function SyncTrip($resource) {
-  return $resource('/trips/sync', {}, {
-    sync: { method: 'POST' }
-  });
+mrm.factory('SyncTrip', function(socketFactory) {
+  var socket = socketFactory();
+  socket.forward('sync-server');
+  return socket;
 });

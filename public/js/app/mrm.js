@@ -1,7 +1,14 @@
 'use strict';
 
 var mrm = angular
-  .module('mrm', ['ngResource', 'ngRoute', 'ngStorage', 'ngUpload', 'ui.select2'])
+  .module('mrm', [
+    'ngResource',
+    'ngRoute',
+    'ngStorage',
+    'ngUpload',
+    'ui.select2',
+    'btford.socket-io'
+  ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
 
     $routeProvider.otherwise({ redirectTo: '/' });
