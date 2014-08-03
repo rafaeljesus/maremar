@@ -7,7 +7,7 @@ mrm.controller('EditTripController', function($scope, $routeParams, $location, T
   $scope.update = function(form) {
     $scope.submitted = true;
     if (!form.$valid) return;
-    $scope.trip.vehicle = $scope.vehicles[$scope.trip.vehicle];
+    $scope.trip.vehicle = $scope.vehicles[$scope.trip.vehicle._id];
     var trip = new Trip({ trip: $scope.trip });
     trip.$update({ id: $routeParams.id }).then(function(trip) {
       $location.path('/passeios');
@@ -26,7 +26,8 @@ mrm.controller('EditTripController', function($scope, $routeParams, $location, T
         _id: value._id,
         name: value.name,
         driver: value.driver,
-        capacity: value.capacity
+        capacity: value.capacity,
+        filename: value.picture.filename
       };
     });
   });

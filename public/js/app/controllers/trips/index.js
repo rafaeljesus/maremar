@@ -11,17 +11,21 @@ mrm.controller('TripsController', function($scope, $sessionStorage, Trip, SyncTr
       name: $sessionStorage.currentUser.name,
       email: $sessionStorage.currentUser.email
     };
-    SyncTrip.emit('sync-client', trip);
+    var options = { trip: trip, elementId: trip._id + '-' + $index };
+    SyncTrip.emit('sync-client', options);
   };
 
   // FIXME when server emits once, clients receives twice
-  $scope.$on('socket:sync-server', function(event, trip) {
+  $scope.$on('socket:sync-server', function(event, options) {
     $scope.$apply(function() {
+      var trip = options.trip, elementId = options.elementId;
       $scope.trips[trip._id].lastSyncBy = trip.lastSyncBy;
       $scope.trips[trip._id].updatedAt = moment(trip.updatedAt).format('h:mm:ss a');
       angular.forEach($scope.trips[trip._id].seats, function(value, key) {
         value.checked = trip.seats[key].checked;
       });
+      var seat = trip.seats[elementId.split('-')[1]];
+      $('#' + elementId).checkbox(seat.checked ? 'check' : 'uncheck');
     });
   });
 

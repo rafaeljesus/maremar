@@ -6,9 +6,9 @@ module.exports = function(io) {
     ;
 
   sockets.on('connection', function (client) {
-    client.on('sync-client', function(trip) {
-      Trip.sync(trip, function(err, doc) {
-        io.emit('sync-server', doc);
+    client.on('sync-client', function(options) {
+      Trip.sync(options.trip, function(err, doc) {
+        io.emit('sync-server', { trip: doc, elementId: options.elementId });
       });
     });
   });
