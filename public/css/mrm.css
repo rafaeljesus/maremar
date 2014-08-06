@@ -1,7 +1,11 @@
+.btn-lg {
+  padding: 18px 20px;
+  font-size: 19px;
+}
 .nav-pills > li.active > a,
 .nav-pills > li.active > a:hover,
 .nav-pills > li.active > a:focus {
-  background-color: #16A085 !important;
+  background-color: #bdc3c7 !important;
 }
 ul {
     list-style-type: none !important;

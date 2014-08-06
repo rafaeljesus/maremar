@@ -1,58 +1,48 @@
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h1>Cadastrar</h1>
-  </div>
-</div>
 <div class="row">
-  <div class="col-md-6">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div ng-controller="SignupController">
-          <form role="form" name="signupForm" ng-submit="register(signupForm)" novalidate>
-            <div class="form-group" ng-class="{ 'has-success': signupForm.name.$valid && submitted, 'has-error': signupForm.name.$invalid && submitted }">
-              <label>Name</label>
-              <div class="form-group">
-                <input type="text" class="form-control" ng-model="user.name" required name="name" placeholder="Digite seu nome" />
-                <span class="input-icon fui-user"></span>
-                <p class="help-block" ng-show="signupForm.name.$error.required && submitted">
-                  Nome é campo obrigatório
-                </p>
-              </div>
-            </div>
-            <div class="form-group" ng-class="{ 'has-success': signupForm.email.$valid && submitted, 'has-error': signupForm.email.$invalid && submitted }">
-              <label>Email</label>
-              <div class="form-group">
-                <input type="email" class="form-control" ng-model="user.email" required name="email" placeholder="Digite seu email" />
-                <span class="input-icon fui-mail"></span>
-                <p class="help-block" ng-show="signupForm.email.$error.required && submitted">
-                  Email é campo obrigatório
-                </p>
-              </div>
-            </div>
-            <div class="form-group" ng-class="{ 'has-success': signupForm.password.$valid && submitted, 'has-error': signupForm.password.$invalid && submitted }">
-              <label>Senha</label>
-              <div class="form-group">
-                <input type="password" class="form-control" ng-model="user.password" required ng-minlength="6" name="password" placeholder="Digite sua senha">
-                <span class="input-icon fui-lock"></span>
-                <p class="help-block" ng-show="signupForm.password.$error.required && submitted">
-                  Senha deve ter no mínimo 6 caracteres
-                </p>
-              </div>
-            </div>
-            <button type="submit" class="btn btn-danger btn-embossed btn-hg pull-right">Cadastrar</button>
-          </form>
+
+  <div class="col-md-4">
+  </div>
+
+  <div class="col-md-4 text-center" style="margin-top: 10%">
+    <div ng-controller="SignupController">
+      <form role="form" name="signupForm" ng-submit="register(signupForm)" novalidate>
+        <div class="form-group" ng-class="{ 'has-success': signupForm.name.$valid && submitted, 'has-error': signupForm.name.$invalid && submitted }">
+          <div class="form-group">
+            <input type="text" class="form-control" ng-model="user.name" required name="name" placeholder="Digite seu nome" />
+            <span class="input-icon fui-user"></span>
+            <p class="help-block" ng-show="signupForm.name.$error.required && submitted">
+              Nome é campo obrigatório
+            </p>
+          </div>
         </div>
-      </div>
+        <div class="form-group" ng-class="{ 'has-success': signupForm.email.$valid && submitted, 'has-error': signupForm.email.$invalid && submitted }">
+          <div class="form-group">
+            <input type="email" class="form-control" ng-model="user.email" required name="email" placeholder="Digite seu email" />
+            <span class="input-icon fui-mail"></span>
+            <p class="help-block" ng-show="signupForm.email.$error.required && submitted">
+              Email é campo obrigatório
+            </p>
+          </div>
+        </div>
+        <div class="form-group" ng-class="{ 'has-success': signupForm.password.$valid && submitted, 'has-error': signupForm.password.$invalid && submitted }">
+          <div class="form-group">
+            <input type="password" class="form-control" ng-model="user.password" required ng-minlength="6" name="password" placeholder="Digite sua senha">
+            <span class="input-icon fui-lock"></span>
+            <p class="help-block" ng-show="signupForm.password.$error.required && submitted">
+              Senha deve ter no mínimo 6 caracteres
+            </p>
+          </div>
+        </div>
+        <div class=form-group"">
+          <button type="submit" class="btn btn-primary btn-embossed btn-hg btn-block">Cadastrar</button>
+        </div>
+      </form>
+      <a class="text-muted" href="#">Ao inscrever-se voce concorda com o <ins>Termos de Serviço</ins></a><br>
+      <strong>Já possui conta? <a href="/entrar"><u>Entrar</u></a></strong>
     </div>
   </div>
-  <div class="col-md-6">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <h4>Já possui conta? Cadastre-se agora!</h4>
-        <br>
-        <p>Estamos felizes por ter gostado do novo sistema da Maremar, efetue o login aqui.</p>
-        <a class="btn btn-primary btn-embossed btn-lg pull-right" href="/entrar">Entrar</a>
-      </div>
-    </div>
-  <div>
+
+  <div class="col-md-4">
+  </div>
+
 </div>

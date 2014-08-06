@@ -6,6 +6,8 @@ mrm.directive('navbarBtnSignin', function($compile, Auth) {
     restrict: 'AE',
     template: template,
     link: function(scope, el, attrs) {
+      el.html(template);
+      $compile(el.html())(scope);
       scope.$on('user:loggedIn', function() {
         el.children().remove();
       });
