@@ -11,8 +11,10 @@ describe('Trip Controller', function() {
   beforeEach(function(done) {
     var newTrip = {
       vehicle: { _id: '53d51e3c6d78d6b004866b95', name: 'jippe', driver: 'driver 1', capacity: 12 },
+      date: new Date(),
       startTime: new Date(),
-      endTime: new Date()
+      endTime: new Date(),
+      lastSyncBy: { name: 'userTest', email: 'userTestEmail' }
     };
     Trip.create(newTrip, function(err, doc) {
       if (err) return done(err);

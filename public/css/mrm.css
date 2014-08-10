@@ -1,3 +1,28 @@
+.glyphicon-cog, .glyphicon-log-out {
+  padding: 6px;
+}
+.container {
+  margin-top: 4%;
+}
+.btn-header {
+  padding: 18px 20px;
+  font-size: 22px;
+}
+.default-header {
+  margin: 0 0 30px 0;
+}
+.default-header h1 {
+  font-weight: 500;
+  font-size: 34px;
+  color: #000;
+  line-height: 40px;
+  margin-top: 0px;
+}
+.datepicker.dropdown-menu {
+  visibility: visible;
+  opacity: 1;
+  width: auto;
+}
 .btn-lg {
   padding: 18px 20px;
   font-size: 19px;

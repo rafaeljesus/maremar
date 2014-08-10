@@ -1,9 +1,23 @@
 <div class="col-md-8">
-  <h3><span class="fui-location"></span> Passeios</h3><br>
+  <div class="col-md-6">
+    <div class="default-header">
+      <h1><span class="fui-location"></span> Passeios de Hoje</h1>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="dropdown pull-right">
+      <button class="btn btn-primary btn-header dropdown-toggle" data-toggle="dropdown"> Filtrar <span class="caret"></span></button>
+      <span class="dropdown-arrow"></span>
+      <ul class="dropdown-menu">
+        <li><a href="javascript:void(0);">Passeios de Hoje</a></li>
+        <li><a href="javascript:void(0);">Passeios da Semana</a></li>
+      </ul>
+    </div>
+  </div>
 </div>
 
 <div class="col-md-8">
-  <div ng-controller="TripsController">
+  <div class="trips" ng-controller="TripsController">
 
     <blockquote ng-repeat="trip in trips">
       <div class="media">
@@ -18,16 +32,15 @@
           </h5>
         </div>
         <span> Saída ás {{trip.startTime}} e retorno ás {{trip.endTime}} <br> </div>
-      <ul>
         <li ng-repeat="seat in trip.seats">
           <label class="checkbox" ng-click="sync(trip, seat, $index)">
             <input type="checkbox" id="{{trip._id}}-{{$index}}" ng-checked="seat.checked" data-toggle="checkbox">
             {{seat.checked ? 'Livre' : 'Ocupado'}}
           </label>
         </li>
-      </ul>
-      <small>Atualizado por {{trip.lastSyncBy.name}} ás {{trip.updatedAt}}</small>
-      <hr>
+        <small>Atualizado por {{trip.lastSyncBy.name}} ás {{trip.updatedAt}}</small>
+        <hr>
+      </div>
     </blockquote>
 
     <div class="pagination">

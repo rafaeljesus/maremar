@@ -32,7 +32,8 @@
     "express": "~4.5.0",
     "mongoose": "~3.8.12",
     "multiparty": "~3.3.0",
-    "socket.io": "~1.0.6"
+    "socket.io": "~1.0.6",
+    "moment": "~2.8.1"
   },
   "devDependencies": {
     "mocha": "*",

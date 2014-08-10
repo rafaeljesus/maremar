@@ -18,10 +18,19 @@
               </p>
             </div>
           </div>
+          <div class="form-group" ng-class="{ 'has-success': form.date.$valid && submitted, 'has-error': form.date.$invalid && submitted }">
+            <label>Data</label>
+            <div class="form-group">
+              <input type="text" class="form-control datepicker" value="{{trip.date}}" ng-model="trip.date" required name="date">
+              <p class="help-block" ng-show="(form.date.$error.minlength || form.date.$error.required) && submitted">
+                Data do Passeio é campo obrigatório
+              </p>
+            </div>
+          </div>
           <div class="form-group" ng-class="{ 'has-success': form.startTime.$valid && submitted, 'has-error': form.startTime.$invalid && submitted }">
             <label>Partida</label>
             <div class="form-group">
-              <input type="text" class="form-control" ng-model="trip.startTime" value="{{trip.startTime}}" required name="startTime" placeholder="Horário de partida HH:MM">
+              <input type="time" class="form-control" ng-model="trip.startTime" value="{{trip.startTime}}" min="06:00" max="20:00" required name="startTime" placeholder="Horário de partida HH:MM">
               <span class="input-icon fui-time"></span>
               <p class="help-block" ng-show="form.startTime.$error.required && submitted">
                 Horário de Partida é campo obrigatório
@@ -31,7 +40,7 @@
           <div class="form-group" ng-class="{ 'has-success': form.endTime.$valid && submitted, 'has-error': form.endTime.$invalid && submitted }">
             <label>Chegada</label>
             <div class="form-group">
-              <input type="text" class="form-control" ng-model="trip.endTime" value="{{trip.endTime}}" required name="endTime" placeholder="Horário de chegada HH:MM">
+              <input type="time" class="form-control" ng-model="trip.endTime" value="{{trip.endTime}}" min="07:00" max="21:00" required name="endTime" placeholder="Horário de chegada HH:MM">
               <span class="input-icon fui-time"></span>
               <p class="help-block" ng-show="form.endTime.$error.required && submitted">
                 Horário de Chegada é campo obrigatório

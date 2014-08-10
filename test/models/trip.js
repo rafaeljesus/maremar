@@ -19,8 +19,10 @@ describe('Trip', function() {
       if (err) return done(err);
       var newTrip = {
         vehicle: { _id: vehicle._id, name: vehicle.name, driver: vehicle.driver, capacity: vehicle.capacity },
+        date: new Date(),
         startTime: new Date(),
-        endTime: new Date()
+        endTime: new Date(),
+        lastSyncBy: { name: 'userTest', email: 'userTestEmail' }
       };
       Trip.create(newTrip, function(err, doc) {
         if (err) return done(err);
@@ -42,6 +44,7 @@ describe('Trip', function() {
 
   it('ensure trip is created', function(done) {
     expect(trip).not.equal(null);
+    expect(trip.seats.length).to.be.equal(12);
     done();
   });
 
@@ -52,6 +55,22 @@ describe('Trip', function() {
         if (err) return done(err);
         expect(doc.vehicle).to.not.equal(undefined);
         done();
+    });
+  });
+
+  it('should find all trips with date equal today', function(done) {
+    Trip.findAllOfToday(function(err, doc) {
+      if (err) return done(err);
+      expect(doc.length).to.be.equal(1);
+      done();
+    });
+  });
+
+  it('should find all trips between today until next week', function(done) {
+    Trip.findAllOfWeek(function(err, doc) {
+      if (err) return done(err);
+      expect(doc.length).to.be.equal(1);
+      done();
     });
   });
 

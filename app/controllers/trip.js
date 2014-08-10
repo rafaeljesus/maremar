@@ -4,7 +4,14 @@ module.exports = function(app) {
 
   TripController = {
     index: function(req, res) {
-      Trip.find({}, function(err, doc) {
+      Trip.findAllOfToday(function(err, doc) {
+        if (err) return res.json(500, err);
+        res.json(doc);
+      });
+    },
+    allOfWeek: function(req, res) {
+      Trip.findAllOfWeek(function(err, doc) {
+        if (err) return res.json(500, err);
         res.json(doc);
       });
     },
