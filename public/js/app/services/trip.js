@@ -1,8 +1,8 @@
 'use strict';
 
-mrm.factory('Trip', function Trip($resource) {
+mrm.factory('Trip', function Trip($resource, $http) {
 
-  return $resource('/trips/:id', {
+  var Trip = $resource('/trips/:id', {
     id: '@id'
   }, {
     update: { method: 'PUT' },
@@ -11,4 +11,13 @@ mrm.factory('Trip', function Trip($resource) {
       params: { id: 'me' }
     }
   });
+
+  angular.extend(Trip.prototype, {
+    findAllOfWeek: function() {
+      return $http({ method: 'GET', url: '/trips/allOfWeek'});
+    }
+  });
+
+  return Trip;
+
 });

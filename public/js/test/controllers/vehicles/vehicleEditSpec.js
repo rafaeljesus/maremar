@@ -33,7 +33,6 @@ describe('EditVehicleControllerSpec', function() {
     };
     routeParams = vehicle.id;
     http.when('GET', '/vehicles').respond(200, vehicle);
-    http.expectGET('/vehicles').respond(200, vehicle);
     scope.find();
     http.flush();
     done();

@@ -31,7 +31,6 @@ describe('VehiclesControllerSpec', function() {
       picture: { filename: 'someimage' }
     }];
     http.when('GET', '/vehicles').respond(200, vehicles);
-    http.expectGET('/vehicles').respond(200, vehicles);
     scope.findAll();
     http.flush();
     done();

@@ -1,83 +1,92 @@
-<div class="col-md-8">
-  <div class="col-md-6">
-    <div class="default-header">
-      <h1><span class="fui-location"></span> Passeios de Hoje</h1>
-    </div>
-  </div>
-  <div class="col-md-6">
-    <div class="dropdown pull-right">
-      <button class="btn btn-primary btn-header dropdown-toggle" data-toggle="dropdown"> Filtrar <span class="caret"></span></button>
-      <span class="dropdown-arrow"></span>
-      <ul class="dropdown-menu">
-        <li><a href="javascript:void(0);">Passeios de Hoje</a></li>
-        <li><a href="javascript:void(0);">Passeios da Semana</a></li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<div class="col-md-8">
-  <div class="trips" ng-controller="TripsController">
-
-    <blockquote ng-repeat="trip in trips">
-      <div class="media">
-        <a class="pull-left" href="javascript:void(0);">
-          <img class="media-object vehicle-avatar img-circle" ng-src="{{trip.vehicle && 'http://localhost:3000/vehicles/image/' + trip.vehicle.filename || ''}}">
-        </a>
-        <div class="media-body">
-          <h5>
-            <div class="media-heading">
-              <a href="/passeios/{{trip._id}}/editar">{{trip.vehicle.name}}</a>
-            </div>
-          </h5>
-        </div>
-        <span> Saída ás {{trip.startTime}} e retorno ás {{trip.endTime}} <br> </div>
-        <li ng-repeat="seat in trip.seats">
-          <label class="checkbox" ng-click="sync(trip, seat, $index)">
-            <input type="checkbox" id="{{trip._id}}-{{$index}}" ng-checked="seat.checked" data-toggle="checkbox">
-            {{seat.checked ? 'Livre' : 'Ocupado'}}
-          </label>
-        </li>
-        <small>Atualizado por {{trip.lastSyncBy.name}} ás {{trip.updatedAt}}</small>
-        <hr>
+<div ng-controller="TripsController" ng-init="findAllOfToday()">
+  <div class="col-md-8">
+    <div class="col-md-6">
+      <div class="default-header">
+        <h1><span class="fui-location"></span> Passeios de Hoje</h1>
       </div>
-    </blockquote>
+    </div>
+    <div class="col-md-6">
+      <div class="dropdown pull-right">
+        <button class="btn btn-primary btn-header dropdown-toggle" data-toggle="dropdown"> Filtrar <span class="caret"></span></button>
+        <span class="dropdown-arrow"></span>
+        <ul class="dropdown-menu">
+          <li><a href="javascript:voip(0);" ng-click="findAllOfToday()">Passeios de Hoje</a></li>
+          <li><a href="javascript:void(0);" ng-click="findAllOfWeek()">Passeios da Semana</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
-    <div class="pagination">
-      <ul>
-        <li class="previous">
-          <a href="#" class="fui-arrow-left"></a>
+  <div class="col-md-8">
+    <div class="trips">
+
+      <div class="alert alert-info" role="alert" ng-if="isTripsEmpty()">
+        <button type="button" class="close" data-dismiss="alert">
+          <span aria-hidden="true">&times;</span>
+          <span class="sr-only">Close</span>
+        </button>
+        <strong>Info!</strong> Não existem passeios cadastrados para hoje ou nessa semana.
+      </div>
+
+      <blockquote ng-repeat="trip in trips">
+        <div class="media">
+          <a class="pull-left" href="javascript:void(0);">
+            <img class="media-object vehicle-avatar img-circle" ng-src="{{trip.vehicle && 'http://localhost:3000/vehicles/image/' + trip.vehicle.filename || ''}}">
+          </a>
+          <div class="media-body">
+            <h5>
+              <div class="media-heading">
+                <a href="/passeios/{{trip._id}}/editar">{{trip.vehicle.name}}</a>
+              </div>
+            </h5>
+          </div>
+          <span> Saída ás {{trip.startTime}} e retorno ás {{trip.endTime}} <br> </div>
+          <li ng-repeat="seat in trip.seats">
+            <label class="checkbox" ng-click="sync(trip, seat, $index)">
+              <input type="checkbox" id="{{trip._id}}-{{$index}}" ng-checked="seat.checked" data-toggle="checkbox">
+              {{seat.checked ? 'Livre' : 'Ocupado'}}
+            </label>
+          </li>
+          <small>Atualizado por {{trip.lastSyncBy.name}} ás {{trip.updatedAt}}</small>
+          <hr>
+        </div>
+      </blockquote>
+      <div class="pagination" ng-if="!isTripsEmpty()">
+        <ul>
+          <li class="previous">
+            <a href="#" class="fui-arrow-left"></a>
+          </li>
+          <li class="active"><a href="#fakelink">1</a></li>
+          <li><a href="#fakelink">2</a></li>
+          <li><a href="#fakelink">3</a></li>
+          <li><a href="#fakelink">4</a></li>
+          <li class="next">
+            <a href="#" class="fui-arrow-right"></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-2">
+    <div class="tabbable tabs-right">
+      <ul class="nav nav-tabs">
+        <li class="active">
+          <a href="/passeios" data-toggle="tab">
+            <span class="fui-location" data-placement="left" data-toggle="tooltip" title="Passeios"></span>
+          </a>
         </li>
-        <li class="active"><a href="#fakelink">1</a></li>
-        <li><a href="#fakelink">2</a></li>
-        <li><a href="#fakelink">3</a></li>
-        <li><a href="#fakelink">4</a></li>
-        <li class="next">
-          <a href="#" class="fui-arrow-right"></a>
+        <li>
+          <a href="#1" data-toggle="tab">
+            <span class="fui-eye" data-placement="left" data-toggle="tooltip" title="Histórico"></span>
+          </a>
+        </li>
+        <li>
+          <a href="#2" data-toggle="tab">
+            <span class="glyphicon glyphicon-stats" data-placement="left" data-toggle="tooltip" title="Dashboard"></span>
+          </a>
         </li>
       </ul>
     </div>
-  </div>
-</div>
-
-<div class="col-md-2">
-  <div class="tabbable tabs-right">
-    <ul class="nav nav-tabs">
-      <li class="active">
-        <a href="/passeios" data-toggle="tab">
-          <span class="fui-location" data-placement="left" data-toggle="tooltip" title="Passeios"></span>
-        </a>
-      </li>
-      <li>
-        <a href="#1" data-toggle="tab">
-          <span class="fui-eye" data-placement="left" data-toggle="tooltip" title="Histórico"></span>
-        </a>
-      </li>
-      <li>
-        <a href="#2" data-toggle="tab">
-          <span class="glyphicon glyphicon-stats" data-placement="left" data-toggle="tooltip" title="Dashboard"></span>
-        </a>
-      </li>
-    </ul>
   </div>
 </div>

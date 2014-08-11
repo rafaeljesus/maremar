@@ -29,15 +29,38 @@ mrm.controller('TripsController', function($scope, $sessionStorage, Trip, SyncTr
     });
   });
 
-  Trip.query({}, function(trips) {
+  $scope.findAllOfToday = function() {
+    Trip.query({}, function(trips) {
+      findAllCallback(trips);
+    });
+  };
+
+  $scope.findAllOfWeek = function() {
+    Trip.prototype.findAllOfWeek().then(function(res) {
+      findAllCallback(res.data);
+    });
+  };
+
+  $scope.isTripsEmpty = function() {
+    return $.isEmptyObject($scope.trips);
+  };
+
+  var findAllCallback = function(trips) {
+    if (trips.length == 0) return $scope.trips = {};
     angular.forEach(trips, function(value, key) {
       value.updatedAt = moment(value.updatedAt).format('h:mm:ss a');
       $scope.trips[value._id] = value;
     });
-  });
+    renderCheckbox();
+  };
+
+  var renderCheckbox = function() {
+    setTimeout(function() {
+      $(':checkbox').checkbox();
+    }, 500);
+  };
 
   setTimeout(function() {
-    $(':checkbox').checkbox();
     $('[data-toggle="tooltip"]').tooltip();
   }, 500);
 

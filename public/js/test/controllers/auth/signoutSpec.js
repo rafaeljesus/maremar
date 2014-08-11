@@ -25,7 +25,6 @@ describe('SignoutControllerSpec', function() {
 
   it('when user signed in then signout', function(done) {
     http.when('DELETE', '/session').respond(200);
-    http.expectDELETE('/session').respond(200);
     scope.logout();
     http.flush();
     done();

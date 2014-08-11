@@ -43,7 +43,7 @@ describe('Trip', function() {
   });
 
   it('ensure trip is created', function(done) {
-    expect(trip).not.equal(null);
+    expect(trip).to.not.equal(null);
     expect(trip.seats.length).to.be.equal(12);
     done();
   });
