@@ -12,7 +12,12 @@
 
   <script src="../../../node_modules/mocha/mocha.js"></script>
   <script src="../../../node_modules/chai/chai.js"></script>
+  <script src="../../../node_modules/chai-spies/chai-spies.js"></script>
   <script>mocha.setup('bdd')</script>
+
+  <script src="../../bower_components/flat-ui/js/jquery-1.10.2.min.js"></script>
+  <script src="../../bower_components/flat-ui/js/flatui-checkbox.js"></script>
+  <script src="../../bower_components/flat-ui/js/bootstrap.min.js"></script>
 
   <script src="../../bower_components/angular/angular.js"></script>
   <script src="../../bower_components/angular-resource/angular-resource.js"></script>
@@ -31,6 +36,7 @@
   <script src="../app/services/user.js"></script>
   <script src="../app/services/vehicle.js"></script>
   <script src="../app/services/trip.js"></script>
+  <script src="../app/services/sync-trip.js"></script>
 
   <script src="../app/controllers/main.js"></script>
   <script src="../app/controllers/profile/settings.js"></script>
@@ -45,12 +51,16 @@
   <script src="../app/controllers/trips/new.js"></script>
   <script src="../app/controllers/trips/edit.js"></script>
 
+  <script src="mock/socket-io.js"></script>
+
   <script src="controllers/auth/signinSpec.js"></script>
   <script src="controllers/auth/signupSpec.js"></script>
   <script src="controllers/auth/signoutSpec.js"></script>
   <script src="controllers/vehicles/vehicleEditSpec.js"></script>
   <script src="controllers/vehicles/vehicleViewSpec.js"></script>
   <script src="controllers/trips/tripNewSpec.js"></script>
+  <script src="controllers/trips/tripEditSpec.js"></script>
+  <script src="controllers/trips/tripIndexSpec.js"></script>
   <script src="controllers/settingsSpec.js"></script>
 
   <script src="services/authSpec.js"></script>

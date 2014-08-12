@@ -42,7 +42,7 @@
           </div>
           <span> Saída ás {{trip.startTime}} e retorno ás {{trip.endTime}} <br> </div>
           <li ng-repeat="seat in trip.seats">
-            <label class="checkbox" ng-click="sync(trip, seat, $index)">
+            <label class="checkbox" ng-click="sync(trip, $index)">
               <input type="checkbox" id="{{trip._id}}-{{$index}}" ng-checked="seat.checked" data-toggle="checkbox">
               {{seat.checked ? 'Livre' : 'Ocupado'}}
             </label>

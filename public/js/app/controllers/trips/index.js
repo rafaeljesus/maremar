@@ -4,7 +4,7 @@ mrm.controller('TripsController', function($scope, $sessionStorage, Trip, SyncTr
 
   $scope.trips = {};
 
-  $scope.sync = function(trip, model, $index) {
+  $scope.sync = function(trip, $index) {
     var trip = $scope.trips[trip._id];
     trip.seats[$index].checked = trip.seats[$index].checked ? false : true;
     trip.lastSyncBy = {

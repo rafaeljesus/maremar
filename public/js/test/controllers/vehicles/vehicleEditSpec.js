@@ -23,7 +23,7 @@ describe('EditVehicleControllerSpec', function() {
     http.verifyNoOutstandingRequest();
   });
 
-  it('when page is loaded then find vehicle by Id', function(done) {
+  it('when page I navigate to edit page then find vehicle by Id', function(done) {
     var vehicle = {
       id: 1,
       name: 'new name',
