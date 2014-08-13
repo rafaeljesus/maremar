@@ -23,22 +23,30 @@ describe('EditTripControllerSpec', function() {
     http.verifyNoOutstandingRequest();
   });
 
-  /*it('when I navigate to edit page then find trip by Id', function(done) {
+  it('when I submit new values then I successfully update trip', function(done) {
     var vehicle = { _id: '12345678', name: 'jippe', driver: 'driver test', capacity: 12, picture: { filename: 'someimage' } }
     , trip = {
-        _id: 12345678,
+        _id: '87654321',
         vehicle: vehicle._id,
         date: new Date(),
         startTime: new Date(),
         endTime: new Date(),
-        lastSyncBy: { name: 'userTest', email: 'userTestEmail' }
-      };
+        lastSyncBy: { name: 'userTest', email: 'user@gmail.com' }
+      }
+    , expectedTrip = angular.copy(trip);
+    expectedTrip.lastSyncBy.name = 'New User Name';
     routeParams = trip._id;
+    scope.vehicles[vehicle._id] = [vehicle];
+    scope.trip = trip;
+    http.when('PUT', '/trips').respond(200, expectedTrip);
     http.when('GET', '/trips').respond(200, trip);
-    
+    http.when('GET', '/vehicles').respond(200, [vehicle]);
+    scope.update({ $valid: true });
     http.flush();
     done();
-    expect(scope.trip).to.no.be.equal(undefined)
-  });*/
+    expect(window.location.hash).to.be.equal('/passeios');
+    expect(scope.trip._id).to.not.be.undefined;
+    expect(scope.vehicles).to.not.be.empty;
+  });
 
 });

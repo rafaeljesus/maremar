@@ -10,7 +10,7 @@ mrm.controller('EditTripController', function($scope, $routeParams, $location, T
     $scope.trip.vehicle = $scope.vehicles[$scope.trip.vehicle._id];
     var trip = new Trip({ trip: $scope.trip });
     trip.$update({ id: $routeParams.id }).then(function(trip) {
-      $locatpon.path('/passeios');
+      $location.path('/passeios');
     }).catch(function(err) {
       err = err.data;
     });
