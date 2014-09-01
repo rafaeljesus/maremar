@@ -2,7 +2,7 @@
   padding: 6px;
 }
 .container {
-  margin-top: 4%;
+  /* margin-top: 4%; */
 }
 .btn-header {
   padding: 18px 20px;
@@ -33,12 +33,12 @@
   background-color: #bdc3c7 !important;
 }
 ul {
-    list-style-type: none !important;
-    margin: 0 !important;
-    padding: 0 !important;
+    /* list-style-type: none !important; */
+    /* margin: 0 !important; */
+    /* padding: 0 !important; */
 }
 li {
-    display: inline !important;
+    /* display: inline !important; */
 }
 .vehicle-avatar {
   max-width: 130px;

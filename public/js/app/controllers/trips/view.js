@@ -1,6 +1,6 @@
 'use strict';
 
-mrm.controller('ViewTripController', function($scope, $routeParams, Trip) {
+mrm.controller('ViewTripController', ['$scope', '$routeParams', 'Trip', function($scope, $routeParams, Trip) {
 
   $scope.find = function() {
     Trip.get({ id: $routeParams.id }, function(trip) {
@@ -8,4 +8,4 @@ mrm.controller('ViewTripController', function($scope, $routeParams, Trip) {
     });
   };
 
-});
+}]);

@@ -1,6 +1,6 @@
 'use strict';
 
-mrm.controller('SettingsController', function($scope, Auth) {
+mrm.controller('SettingsController', ['$scope', 'Auth', function($scope, Auth) {
   $scope.errors = {};
 
   $scope.changePassword = function() {
@@ -14,4 +14,4 @@ mrm.controller('SettingsController', function($scope, Auth) {
         $scope.errors.other = 'Incorrect password';
       });
   };
-});
+}]);

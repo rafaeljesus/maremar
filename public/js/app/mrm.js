@@ -9,7 +9,7 @@ var mrm = angular
     'ui.select2',
     'btford.socket-io'
   ])
-  .config(function ($routeProvider, $locationProvider, $httpProvider) {
+  .config(['$routeProvider', '$locationProvider', '$httpProvider', function($routeProvider, $locationProvider, $httpProvider) {
 
     $routeProvider.otherwise({ redirectTo: '/' });
     $locationProvider.html5Mode(true);
@@ -26,4 +26,4 @@ var mrm = angular
         }
       };
     }]);
-  });
+  }]);

@@ -1,6 +1,6 @@
 'use strict';
 
-mrm.controller('TripsController', function($scope, $sessionStorage, Trip, SyncTrip) {
+mrm.controller('TripsController', ['$scope', '$sessionStorage', 'Trip', 'SyncTrip', function($scope, $sessionStorage, Trip, SyncTrip) {
 
   $scope.trips = {};
 
@@ -64,4 +64,4 @@ mrm.controller('TripsController', function($scope, $sessionStorage, Trip, SyncTr
     $('[data-toggle="tooltip"]').tooltip();
   }, 500);
 
-});
+}]);

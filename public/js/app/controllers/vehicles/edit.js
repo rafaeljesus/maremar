@@ -1,6 +1,6 @@
 'use strict';
 
-mrm.controller('EditVehicleController', function($scope, $routeParams, $location, Vehicle) {
+mrm.controller('EditVehicleController', ['$scope', '$routeParams', '$location', 'Vehicle', function($scope, $routeParams, $location, Vehicle) {
 
   $scope.find = function() {
     Vehicle.get({ id: $routeParams.id }, function(vehicle) {
@@ -17,4 +17,4 @@ mrm.controller('EditVehicleController', function($scope, $routeParams, $location
     $scope.submitted = true;
   };
 
-});
+}]);

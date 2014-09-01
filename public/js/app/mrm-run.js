@@ -1,6 +1,6 @@
 'use strict';
 
-mrm.run(function($rootScope, $location, Auth) {
+mrm.run(['$rootScope', '$location', 'Auth', function($rootScope, $location, Auth) {
 
   if (Auth.isLoggedIn()) {
     setTimeout(function() {
@@ -14,4 +14,4 @@ mrm.run(function($rootScope, $location, Auth) {
     }
   });
 
-});
+}]);

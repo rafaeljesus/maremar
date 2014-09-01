@@ -6355,7 +6355,7 @@ body .colapsed-menu::-webkit-scrollbar {
   width: 100%;
 }
 .header-21 .navbar {
-  margin-top: 107px;
+  /* margin-top: 107px; */
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .header-21 .navbar.navbar-fixed-top {
@@ -6384,12 +6384,12 @@ body .colapsed-menu::-webkit-scrollbar {
   background: none;
   font-size: 15px;
   font-weight: 800;
-  border: 2px solid #e74c3c;
-  color: #e74c3c;
+  border: 2px solid #1abc9c;
+  color: #1abc9c;
 }
 .header-21 .navbar .btn:hover,
 .header-21 .navbar .btn:focus {
-  background: #e74c3c;
+  background: #1abc9c;
   color: white;
 }
 .header-21 .navbar .btn:active,
@@ -6403,7 +6403,7 @@ body .colapsed-menu::-webkit-scrollbar {
   padding-bottom: 0;
   font-size: 25px;
   font-weight: normal;
-  color: #e74c3c;
+  color: #1abc9c;
   font-weight: 800;
 }
 .header-21 .navbar .brand img:first-child {
@@ -6435,15 +6435,15 @@ body .colapsed-menu::-webkit-scrollbar {
 .header-21 .navbar .nav > li > a:hover,
 .header-21 .navbar .nav > li > a:focus,
 .header-21 .navbar .nav > li > a.active {
-  color: #e74c3c;
+  color: #1abc9c;
 }
 .header-21 .navbar .nav > li.active > a {
-  color: #e74c3c;
+  color: #1abc9c;
 }
 .header-21 .navbar .nav > li.active > a:hover,
 .header-21 .navbar .nav > li.active > a:focus,
 .header-21 .navbar .nav > li.active > a.active {
-  color: #e74c3c;
+  color: #1abc9c;
 }
 .header-21 .navbar .navbar-toggle {
   background-image: url("../../../common-files/icons/menu-icon-header-21@2x.png");
@@ -6554,7 +6554,7 @@ body .colapsed-menu::-webkit-scrollbar {
   background: #ecf0f1;
   position: absolute;
   left: 50%;
-  bottom: 130px;
+  bottom: 20px;
   margin-left: -26.5px;
 }
 .header-21-sub .control-btn:hover,

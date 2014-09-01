@@ -563,15 +563,23 @@ startupKit.uiKitHeader.header21 = function() {
     }
     $('.header-21-sub').height(maxH);
 
-    $('.header-21-sub .control-btn').on('click', function() {
+    $('.header-21-sub .control-btn').on('click', function(e) {
         $.scrollTo($(this).closest('section').next(), {
             axis : 'y',
             duration : 500
         });
         return false;
     });
-
 };
+
+/* Footer */
+$('footer .scroll-top').on('click', function() {
+  $.scrollTo($('#top'), {
+      axis : 'y',
+      duration : 500
+  });
+  return false;
+});
 
 /* Header 22*/
 startupKit.uiKitHeader.header22 = function() {

@@ -1,6 +1,6 @@
 'use strict';
 
-mrm.controller('ViewVehicleController', function($scope, $routeParams, Vehicle) {
+mrm.controller('ViewVehicleController', ['$scope', '$routeParams', 'Vehicle', function($scope, $routeParams, Vehicle) {
 
   $scope.find = function() {
     Vehicle.get({ id: $routeParams.id }, function(vehicle) {
@@ -11,4 +11,4 @@ mrm.controller('ViewVehicleController', function($scope, $routeParams, Vehicle) 
     });
   };
 
-});
+}]);

@@ -1,6 +1,6 @@
 'use strict';
 
-mrm.controller('NewTripController', function($scope, Trip, Vehicle, $location) {
+mrm.controller('NewTripController', ['$scope', 'Trip', 'Vehicle', '$location', function($scope, Trip, Vehicle, $location) {
 
   $scope.vehicles = {};
 
@@ -30,4 +30,4 @@ mrm.controller('NewTripController', function($scope, Trip, Vehicle, $location) {
     });
   };
 
-});
+}]);

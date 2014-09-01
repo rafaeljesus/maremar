@@ -1,6 +1,6 @@
 'use strict';
 
-mrm.controller('VehiclesController', function($scope, Vehicle) {
+mrm.controller('VehiclesController', ['$scope', 'Vehicle', function($scope, Vehicle) {
 
   Vehicle.query({}, function(vehicles) {
     angular.forEach(vehicles, function(value, key) {
@@ -9,4 +9,4 @@ mrm.controller('VehiclesController', function($scope, Vehicle) {
     $scope.vehicles = vehicles;
   });
 
-});
+}]);

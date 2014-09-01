@@ -1,6 +1,6 @@
 'use strict';
 
-mrm.controller('EditTripController', function($scope, $routeParams, $location, Trip, Vehicle) {
+mrm.controller('EditTripController', ['$scope', '$routeParams', '$location', 'Trip', 'Vehicle', function($scope, $routeParams, $location, Trip, Vehicle) {
 
   $scope.vehicles = {};
 
@@ -34,4 +34,4 @@ mrm.controller('EditTripController', function($scope, $routeParams, $location, T
     });
   });
 
-});
+}]);

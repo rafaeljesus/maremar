@@ -1,6 +1,6 @@
 'use strict';
 
-mrm.controller('SigninController', function($scope, Auth, $location) {
+mrm.controller('SigninController', ['$scope', 'Auth', '$location', function($scope, Auth, $location) {
 
   $scope.authenticate = function(form) {
     $scope.submitted = true;
@@ -19,4 +19,4 @@ mrm.controller('SigninController', function($scope, Auth, $location) {
     });
   };
 
-});
+}]);

@@ -1,6 +1,6 @@
 'use strict';
 
-mrm.controller('SignoutController', function($scope, Auth, $location) {
+mrm.controller('SignoutController', ['$scope', 'Auth', '$location', function($scope, Auth, $location) {
 
   $scope.logout = function() {
     Auth.logout().then(function() {
@@ -8,4 +8,4 @@ mrm.controller('SignoutController', function($scope, Auth, $location) {
     });
   };
 
-});
+}]);
