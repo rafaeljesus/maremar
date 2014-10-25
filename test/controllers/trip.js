@@ -1,8 +1,8 @@
 var app = require('../../app')
-, fs = require('fs')
-, expect = require('chai').expect
-, request = require('supertest')(app)
-, Trip = app.models.trip;
+  , fs = require('fs')
+  , expect = require('chai').expect
+  , request = require('supertest')(app)
+  , Trip = app.models.trip;
 
 describe('Trip Controller', function() {
 
