@@ -2,8 +2,8 @@ TN:
 SF:/Users/rafaeljesus/maremar/app.js
 FN:48,(anonymous_1)
 FNF:1
-FNH:0
-FNDA:0,(anonymous_1)
+FNH:1
+FNDA:1,(anonymous_1)
 DA:1,1
 DA:20,1
 DA:21,1
@@ -20,10 +20,10 @@ DA:38,1
 DA:43,1
 DA:46,1
 DA:48,1
-DA:49,0
+DA:49,1
 DA:52,1
 LF:18
-LH:17
+LH:18
 BRDA:46,1,0,1
 BRDA:46,1,1,1
 BRF:2
