@@ -9,7 +9,7 @@
   "private": false,
   "scripts": {
     "start": "node app.js",
-    "test": "NODE_ENV=test mocha --recursive --reporter spec /test",
+    "test": "NODE_ENV=test mocha --recursive --reporter spec",
     "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --recursive --reporter dot test/"
   },
   "dependencies": {
