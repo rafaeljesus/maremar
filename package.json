@@ -33,7 +33,8 @@
     "mongoose": "~3.8.12",
     "multiparty": "~3.3.0",
     "socket.io": "~1.0.6",
-    "moment": "~2.8.1"
+    "moment": "~2.8.1",
+    "formidable": "1.0.15"
   },
   "devDependencies": {
     "mocha": "*",
