@@ -9,7 +9,7 @@
   "private": false,
   "scripts": {
     "start": "node app.js",
-    "test": "NODE_ENV=test istanbul cover node_modules/mocha/bin/_mocha -- --recursive --reporter dot test/"
+    "test": "NODE_ENV=test cover node_modules/mocha/bin/_mocha -- --recursive --reporter dot test/"
   },
   "dependencies": {
     "static-favicon": "~1.0.0",
