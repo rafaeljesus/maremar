@@ -9,7 +9,8 @@
   "private": false,
   "scripts": {
     "start": "node app.js",
-    "test": "NODE_ENV=test cover node_modules/mocha/bin/_mocha -- --recursive --reporter dot test/"
+    "test": "NODE_ENV=test mocha --recursive --reporter spec",
+    "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --recursive --reporter dot test/"
   },
   "dependencies": {
     "static-favicon": "~1.0.0",
@@ -33,7 +34,8 @@
     "multiparty": "~3.3.0",
     "socket.io": "~1.0.6",
     "moment": "~2.8.1",
-    "formidable": "1.0.15"
+    "formidable": "1.0.15",
+    "coveralls": "~2.11.2"
   },
   "devDependencies": {
     "mocha": "*",
@@ -48,6 +50,7 @@
     "chai-spies": "~0.5.1",
     "chai": "~1.9.1",
     "sinon": "~1.10.3",
-    "sinon-chai": "~2.5.0"
+    "sinon-chai": "~2.5.0",
+    "istanbul": "~0.3.2"
   }
 }
