@@ -3,6 +3,7 @@ node_js:
   - "0.11"
   - "0.10"
 before_script:
+  - "CODECLIMATE_REPO_TOKEN=d771593b3584d50f78c5bf92c9b9e766412eccb323f82e934f2bdbc1f5b3f6f8 codeclimate < coverage/lcov.info"
   - sleep 15
   - mongo mydb_test --eval 'db.addUser("travis", "test");'
 services:
