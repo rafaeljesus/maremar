@@ -2,11 +2,9 @@ language: node_js
 node_js:
   - "0.11"
 before_script:
-  # "CODECLIMATE_REPO_TOKEN=d771593b3584d50f78c5bf92c9b9e766412eccb323f82e934f2bdbc1f5b3f6f8 codeclimate < coverage/lcov.info"
+  - "CODECLIMATE_REPO_TOKEN=d771593b3584d50f78c5bf92c9b9e766412eccb323f82e934f2bdbc1f5b3f6f8 codeclimate < coverage/lcov.info"
   - sleep 15
   - mongo mydb_test --eval 'db.addUser("travis", "test");'
 services:
   - mongodb
   - redis-server
-after_script:
-  NODE_ENV=test istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage
