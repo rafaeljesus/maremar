@@ -1,4 +1,4 @@
-Maremar [![Build Status](https://travis-ci.org/rafaeljesus/maremar.svg?branch=master)](https://travis-ci.org/rafaeljesus/maremar) [![Test Coverage](https://codeclimate.com/github/rafaeljesus/maremar/badges/coverage.svg)](https://codeclimate.com/github/rafaeljesus/maremar) [![Code Climate](https://codeclimate.com/github/rafaeljesus/maremar/badges/gpa.svg)](https://codeclimate.com/github/rafaeljesus/maremar)
+Maremar [![Build Status](https://travis-ci.org/rafaeljesus/maremar.svg?branch=master)](https://travis-ci.org/rafaeljesus/maremar) [![Coverage Status](https://coveralls.io/repos/rafaeljesus/maremar/badge.png)](https://coveralls.io/r/rafaeljesus/maremar) [![Code Climate](https://codeclimate.com/github/rafaeljesus/maremar/badges/gpa.svg)](https://codeclimate.com/github/rafaeljesus/maremar)
 ===============
 
 This is app is for my portfolio
