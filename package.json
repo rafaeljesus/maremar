@@ -10,7 +10,7 @@
   "scripts": {
     "start": "node app.js",
     "test": "NODE_ENV=test mocha --recursive --reporter spec",
-    "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --recursive --reporter dot test/"
+    "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --recursive --report lcovonly --reporter spec test/"
   },
   "dependencies": {
     "static-favicon": "~1.0.0",
@@ -34,8 +34,7 @@
     "multiparty": "~3.3.0",
     "socket.io": "~1.0.6",
     "moment": "~2.8.1",
-    "formidable": "1.0.15",
-    "coveralls": "~2.11.2"
+    "formidable": "1.0.15"
   },
   "devDependencies": {
     "mocha": "*",

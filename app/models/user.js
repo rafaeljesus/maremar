@@ -27,7 +27,7 @@ module.exports = function(app) {
         name: user.name,
         email: user.email,
         password: shaSum.digest('hex')
-      };
+      }
       return this.create(attrs, function(err, doc) {
         if (err) return cb(err);
         cb(null, doc);
