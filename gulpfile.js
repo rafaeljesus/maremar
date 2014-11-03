@@ -1,9 +1,10 @@
 var gulp = require('gulp')
-, concat = require('gulp-concat')
-, uglify = require('gulp-uglify')
-, minifyCSS = require('gulp-minify-css');
-
-var scripts = [];
+  , concat = require('gulp-concat')
+  , uglify = require('gulp-uglify')
+  , minifyCSS = require('gulp-minify-css')
+  , scripts = []
+  , styles = []
+;
 
 gulp.task('scripts', function() {
   return gulp.src(scripts)
@@ -11,8 +12,6 @@ gulp.task('scripts', function() {
     .pipe(concat('app.min.js'))
     .pipe(gulp.dest('public/build/js'));
 });
-
-var styles = [];
 
 gulp.task('styles', function() {
   gulp.src(styles)

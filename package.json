@@ -10,7 +10,7 @@
   "scripts": {
     "start": "node app.js",
     "test": "NODE_ENV=test mocha --recursive --reporter spec",
-    "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --recursive --report lcovonly --reporter spec test/"
+    "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --timeout 4000 --recursive --report lcovonly --reporter spec test/"
   },
   "dependencies": {
     "static-favicon": "~1.0.0",
