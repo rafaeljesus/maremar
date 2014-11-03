@@ -10,5 +10,6 @@ services:
 before_script:
   - sleep 15
   - mongo mydb_test --eval 'db.addUser("travis", "test");'
+  - sleep 3
 script: "npm run-script test-cov"
 after_script: "npm install coveralls@2.10.0 && cat ./coverage/lcov.info | coveralls"
