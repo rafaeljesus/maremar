@@ -1,14 +1,11 @@
 language: node_js
 node_js:
   - "0.11"
-addons:
-  code_climate:
-    repo_token: d771593b3584d50f78c5bf92c9b9e766412eccb323f82e934f2bdbc1f5b3f6f8
+env:
+  - CODECLIMATE_REPO_TOKEN=d771593b3584d50f78c5bf92c9b9e766412eccb323f82e934f2bdbc1f5b3f6f8 codeclimate < coverage/lcov.info
 services:
   - mongodb
   - redis-server
 before_script:
   - sleep 15
   - mongo mydb_test --eval 'db.addUser("travis", "test");'
-after_script:
-  - cat coverage/lcov.info | codeclimate

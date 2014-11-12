@@ -1,7 +1,7 @@
 var gulp = require('gulp')
-, concat = require('gulp-concat')
-, uglify = require('gulp-uglify')
-, minifyCSS = require('gulp-minify-css');
+  , concat = require('gulp-concat')
+  , uglify = require('gulp-uglify')
+  , minifyCSS = require('gulp-minify-css');
 
 var scripts = [];
 
