@@ -2,7 +2,7 @@
 
 'use strict';
 
-var app         = require('../../app')
+var app         = require('../../../app')
   , fs          = require('fs')
   , expect      = require('chai').expect
   , request     = require('supertest')(app)

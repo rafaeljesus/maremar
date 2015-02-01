@@ -1,6 +1,6 @@
 'use strict';
 
-var app       = require('../../app')
+var app       = require('../../../app')
   , Vehicle   = app.models.vehicle
   , expect    = require('chai').expect;
 

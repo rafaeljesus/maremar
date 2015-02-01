@@ -1,6 +1,6 @@
 'use strict';
 
-var app     = require('../../app')
+var app     = require('../../../app')
   , User    = app.models.user
   , expect  = require('chai').expect;
 

@@ -2,7 +2,7 @@
 
 'use strict';
 
-var app       = require('../../app')
+var app       = require('../../../app')
   , expect    = require('chai').expect
   , async     = require('async')
   , Trip      = app.models.trip
