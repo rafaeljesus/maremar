@@ -1,10 +1,12 @@
-var app = require('../../app')
-, User = app.models.user
-, expect = require('chai').expect;
+'use strict';
+
+var app     = require('../../app')
+  , User    = app.models.user
+  , expect  = require('chai').expect;
 
 describe('User', function() {
 
-  var currentUser = null;
+  var currentUser;
 
   beforeEach(function(done) {
     var options = {
@@ -13,7 +15,7 @@ describe('User', function() {
       email: 'valid@email.com'
     };
     User.register(options, function(err, user) {
-      if (err) return done(err);
+      if (err) { return done(err); }
       currentUser = user;
       done();
     });
@@ -21,7 +23,7 @@ describe('User', function() {
 
   afterEach(function(done) {
     User.remove(function(err) {
-      if (err) return done(err);
+      if (err) { return done(err); }
       done();
     });
   });
@@ -37,7 +39,7 @@ describe('User', function() {
       password: 'userTestPassword'
     };
     User.authenticate(options, function(err, user) {
-      if (err) return done(err);
+      if (err) { return done(err); }
       expect(user.email).to.equal(currentUser.email);
       done();
     });
@@ -49,7 +51,7 @@ describe('User', function() {
       password: 'userTestPassword'
     };
     User.authenticate(options, function(err, user) {
-      if (err) return done(err);
+      if (err) { return done(err); }
       expect(user.email).to.equal(currentUser.email);
       done();
     });
@@ -62,7 +64,7 @@ describe('User', function() {
       password: 'new-password'
     };
     User.register(options, function(err, user) {
-      if (err) return done(err);
+      if (err) { return done(err); }
       expect(user.email).to.equal(options.email);
       expect(user.password).not.to.equal('new-password');
       done();
@@ -78,7 +80,7 @@ describe('User', function() {
     User.register(options, function(err, user) {
       expect(err.errors.email).not.to.equal(null);
       done();
-    })
+    });
   });
 
   it('should not register a user with invalid password');

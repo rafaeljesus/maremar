@@ -1,14 +1,16 @@
-var app = require('../../app')
-, fs = require('fs')
-, expect = require('chai').expect
-, request = require('supertest')(app)
-, Vehicle = app.models.vehicle;
+/*jshint -W030 */
+
+'use strict';
+
+var app         = require('../../app')
+  , fs          = require('fs')
+  , expect      = require('chai').expect
+  , request     = require('supertest')(app)
+  , Vehicle     = app.models.vehicle;
 
 describe('Vehicle Controller', function() {
 
-  var vehicle
-  , imgPath = 'public/bower_components/flat-ui/images/exaple-image.jpg'
-  ;
+  var vehicle, imgPath = 'public/bower_components/flat-ui/images/exaple-image.jpg';
 
   beforeEach(function(done) {
     var options = {
@@ -17,7 +19,7 @@ describe('Vehicle Controller', function() {
       capacity: 1
     };
     Vehicle.create(options, function(err, doc) {
-      if (err) return done(err);
+      if (err) { return done(err); }
       vehicle = doc;
       done();
     });
@@ -25,7 +27,7 @@ describe('Vehicle Controller', function() {
 
   afterEach(function(done) {
     Vehicle.remove(function(err) {
-      if (err) return done(err);
+      if (err) { return done(err); }
       done();
     });
   });
@@ -35,10 +37,10 @@ describe('Vehicle Controller', function() {
       .get('/vehicles')
       .expect(200)
       .end(function(err, res) {
-        if (err) return done(err);
+        if (err) { return done(err); }
         expect(res.body[0]._id).to.be.equal(vehicle.id);
         done();
-      })
+      });
   }),
 
   it('when vehicle is valid then create', function(done) {
@@ -50,7 +52,7 @@ describe('Vehicle Controller', function() {
       .attach('file', imgPath)
       .expect(201)
       .end(function(err, res) {
-        if (err) return done(err);
+        if (err) { return done(err); }
         expect(res.body._id).to.not.equal(null);
         expect(res.body.picture.filename).to.not.equal(null);
         done();
@@ -68,7 +70,7 @@ describe('Vehicle Controller', function() {
       .attach('file', imgPath)
       .expect(200)
       .end(function(err, res) {
-        if (err) return done(err);
+        if (err) { return done(err); }
         expect(vehicle.capacity).to.not.equal(newCapacity);
         done();
       });
@@ -80,7 +82,7 @@ describe('Vehicle Controller', function() {
       .accept('application/json')
       .expect(200)
       .end(function(err, res) {
-        if (err) return done(err);
+        if (err) { return done(err); }
         expect(vehicle.id).not.equal(res.id);
         done();
       });
@@ -93,7 +95,7 @@ describe('Vehicle Controller', function() {
         .get('/vehicles/image/' + 'exaple-image.jpg')
         .expect(200)
         .end(function(err, res) {
-          if (err) return done(err);
+          if (err) { return done(err); }
           fs.unlink(newPath, function(err) {
             done();
           });

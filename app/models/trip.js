@@ -1,9 +1,10 @@
+'use strict';
+
 module.exports = function(app) {
 
-  var db = require('../../lib/db_connect')()
+  var db = require('../../lib/db-connect')()
   , Schema = require('mongoose').Schema
-  , moment = require('moment')
-  ;
+  , moment = require('moment');
 
   var Trip = Schema({
     vehicle: {
@@ -23,7 +24,7 @@ module.exports = function(app) {
   });
 
   var today = function() {
-    var now = new moment()
+    var now = new moment();
     return toDate(now);
   };
 
@@ -41,14 +42,14 @@ module.exports = function(app) {
 
   Trip.statics.findAllOfToday = function(cb) {
     return this.find({ date: { $gte: today() } }, function(err, doc) {
-      if (err) return cb(err);
+      if (err) { return cb(err); }
       cb(null, doc);
     });
   };
 
   Trip.statics.findAllOfWeek = function(cb) {
     return this.find({ date: { $gte: today(), $lte: nextWeek() } }, function(err, doc) {
-      if (err) return cb(err);
+      if (err) { return cb(err); }
       cb(null, doc);
     });
   };
@@ -61,7 +62,7 @@ module.exports = function(app) {
           'updatedAt': new Date()
           }
         }, function(err, doc) {
-          if (err) return cb(err);
+          if (err) { return cb(err); }
           cb(null, doc);
         });
   };
@@ -72,7 +73,7 @@ module.exports = function(app) {
     if (!this.createdAt) {
       this.createdAt = now;
     }
-    if (this.seats.length == 0) {
+    if (this.seats.length === 0) {
       for (var i = 0; i < this.vehicle.capacity; ++i) {
         this.seats.push({ checked: false });
       }

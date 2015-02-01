@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = function(app) {
 
   var trip = app.controllers.trip;
@@ -7,5 +9,4 @@ module.exports = function(app) {
   app.get('/trips/:id', trip.show);
   app.post('/trips', trip.create);
   app.put('/trips/:id', trip.update);
-
 };

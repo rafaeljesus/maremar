@@ -1,21 +1,22 @@
-var app = require('../../app')
-, fs = require('fs')
-, Vehicle = app.models.vehicle
-, expect = require('chai').expect;
+'use strict';
+
+var app       = require('../../app')
+  , Vehicle   = app.models.vehicle
+  , expect    = require('chai').expect;
 
 describe('Vehicle', function() {
 
-  var vehicle = null;
+  var vehicle;
 
   beforeEach(function(done) {
     var options = {
-      picture: { filename: 'image-exaple.jpg', contentType: '' }
-    , name: 'jippe'
-    , driver: 'driver 1'
-    , capacity: 12
+      picture: { filename: 'image-exaple.jpg', contentType: '' },
+      name: 'jippe',
+      driver: 'driver 1',
+      capacity: 12
     };
     Vehicle.create(options, function(err, doc) {
-      if (err) return done(err);
+      if (err) { return done(err); }
       vehicle = doc;
       done();
     });
@@ -23,7 +24,7 @@ describe('Vehicle', function() {
 
   afterEach(function(done) {
     Vehicle.remove(function(err) {
-      if (err) return done(err);
+      if (err) { return done(err); }
       done();
     });
   });

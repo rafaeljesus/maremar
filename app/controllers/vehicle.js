@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = function(app) {
 
   var fs = require('fs')
@@ -5,7 +7,7 @@ module.exports = function(app) {
     , Vehicle = app.models.vehicle;
 
   var onFile = function(field, file) {
-    if (!file) return;
+    if (!file) { return; }
     var newPath = process.env.HOME + '/' + file.name;
     fs.rename(file.path, newPath);
   };
@@ -35,7 +37,7 @@ module.exports = function(app) {
         };
         if (fields.id) {
           Vehicle.findById(fields.id, function(err, doc) {
-            if (err) return res.json(500, err);
+            if (err) { return res.json(500, err); }
             doc.name = vehicle.name;
             doc.driver = vehicle.driver;
             doc.capacity = vehicle.capacity;
@@ -46,7 +48,7 @@ module.exports = function(app) {
           });
         } else {
           Vehicle.create(vehicle, function(err, doc) {
-            if (err) return res.json(500, err);
+            if (err) { return res.json(500, err); }
             res.json(201, doc);
           });
         }
@@ -56,7 +58,7 @@ module.exports = function(app) {
     show: function(req, res) {
       var id = req.params.id;
       Vehicle.findById(id, function(err, vehicle) {
-        if (err) return res.json(err);
+        if (err) { return res.json(err); }
         res.json(vehicle);
       });
     },
@@ -64,7 +66,7 @@ module.exports = function(app) {
     image: function(req, res) {
       var file = req.params.file;
       fs.readFile(process.env.HOME + '/' + file, function(err, img) {
-        if (err) return res.json(err);
+        if (err) { return res.json(err); }
         res.writeHead(200, { 'Content-Type': 'image/jpg' });
         res.end(new Buffer(img));
       });

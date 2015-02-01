@@ -1,11 +1,13 @@
-var app = require('../../app')
-, expect = require('chai').expect
-, request = require('supertest')(app)
-, User = app.models.user;
+'use strict';
+
+var app       = require('../../app')
+  , expect    = require('chai').expect
+  , request   = require('supertest')(app)
+  , User      = app.models.user;
 
 describe('Auth Controller', function() {
 
-  var currentUser = null;
+  var currentUser;
 
   beforeEach(function(done) {
     var options = {
@@ -14,7 +16,7 @@ describe('Auth Controller', function() {
       email: 'valid@email.com'
     };
     User.register(options, function(err, user) {
-      if (err) return done(err);
+      if (err) { return done(err); }
       currentUser = user;
       done();
     });
@@ -22,7 +24,7 @@ describe('Auth Controller', function() {
 
   afterEach(function(done) {
     User.remove(function(err) {
-      if (err) return done(err);
+      if (err) { return done(err); }
       done();
     });
   });
@@ -36,7 +38,7 @@ describe('Auth Controller', function() {
       .expect('Content-Type', /json/)
       .expect(200)
       .end(function(err, res) {
-        if (err) return done(err);
+        if (err) { return done(err); }
         expect(res.body.name).to.equal('userTest');
         done();
       });
@@ -57,7 +59,7 @@ describe('Auth Controller', function() {
       .expect('Content-Type', /json/)
       .expect(200)
       .end(function(err, res) {
-        if (err) return done(err);
+        if (err) { return done(err); }
         expect(res.body.name).to.equal('User Test First Name');
         done();
       });
@@ -77,7 +79,7 @@ describe('Auth Controller', function() {
       .expect('Content-Type', /json/)
       .expect(200)
       .end(function(err, res) {
-        if (err) return done(err);
+        if (err) { return done(err); }
         expect(res.status).to.equal(200);
         done();
       });
@@ -91,7 +93,7 @@ describe('Auth Controller', function() {
       .expect('Content-Type', /json/)
       .expect(200)
       .end(function(err, res) {
-        if (err) return done(err);
+        if (err) { return done(err); }
         expect(res.status).to.equal(200);
         done();
       });

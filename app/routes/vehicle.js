@@ -1,7 +1,8 @@
+'use strict';
+
 module.exports = function(app) {
 
-  var vehicle = app.controllers.vehicle
-  ;
+  var vehicle = app.controllers.vehicle;
 
   app.get('/vehicles', vehicle.index);
   app.get('/vehicles/:id', vehicle.show);

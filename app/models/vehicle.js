@@ -1,8 +1,9 @@
+'use strict';
+
 module.exports = function(app) {
 
-  var db = require('../../lib/db_connect')()
-  , Schema = require('mongoose').Schema
-  ;
+  var db = require('../../lib/db-connect')()
+  , Schema = require('mongoose').Schema;
 
   var Vehicle = new Schema({
     picture: { filename: String, contentType: String }

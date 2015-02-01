@@ -1,9 +1,10 @@
+'use strict';
+
 module.exports = function(app) {
 
-  var db = require('../../lib/db_connect')()
+  var db = require('../../lib/db-connect')()
   , Schema = require('mongoose').Schema
-  , crypto = require('crypto')
-  ;
+  , crypto = require('crypto');
 
   var User = Schema({
     name: { type: String, required: true }
@@ -29,7 +30,7 @@ module.exports = function(app) {
         password: shaSum.digest('hex')
       };
       return this.create(attrs, function(err, doc) {
-        if (err) return cb(err);
+        if (err) { return cb(err); }
         cb(null, doc);
       });
   };
@@ -38,7 +39,7 @@ module.exports = function(app) {
     var shaSum = crypto.createHash('sha256');
     shaSum.update(user.password);
     return this.findOne({ email: user.email, password: shaSum.digest('hex') }, function(err, doc) {
-      if (err) return cb(err);
+      if (err) { return cb(err); }
       cb(null, doc);
     });
   };
@@ -48,14 +49,14 @@ module.exports = function(app) {
     shaSum.update(newPassword);
     var hashedPassword = shaSum.digest('hex');
     return this.update({ _id: userId }, { $set: { password: hashedPassword } }, { upsert: false }, function(err, numberAffected) {
-      if (err) return cb(err);
+      if (err) { return cb(err); }
       cb(null, { numberAffected: numberAffected });
     });
   };
 
   User.statics.forgotPassword = function(email, resetPasswordUrl, cb) {
     return this.findOne({ email: email }, function(err, doc) {
-      if (err) return cb(err);
+      if (err) { return cb(err); }
       /*var smtpTransport = nodemailer.createTransport('SMTP', config.mail);
       resetPasswordUrl += '?account=' + doc._id;
       smtpTransport.sendMail({

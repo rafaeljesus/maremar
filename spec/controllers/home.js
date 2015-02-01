@@ -1,6 +1,8 @@
-var app = require('../../app')
-, expect = require('chai').expect
-, request = require('supertest')(app);
+'use strict';
+
+var app       = require('../../app')
+  , expect    = require('chai').expect
+  , request   = require('supertest')(app);
 
 describe('Home Controller', function() {
 
@@ -8,7 +10,6 @@ describe('Home Controller', function() {
     request.get('/').end(function(err, res) {
       expect(res.status).to.equal(200);
       done();
-  	});
+    });
   });
-
 });
