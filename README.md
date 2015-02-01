@@ -1,4 +1,4 @@
-Maremar [![Circle CI](https://circleci.org/gh/rafaeljesus/maremar.png?style=badge)](https://circleci.org/gh/rafaeljesus/maremar) [![Test Coverage](https://codeclimate.com/github/rafaeljesus/maremar/badges/coverage.svg)](https://codeclimate.com/github/rafaeljesus/maremar) [![Code Climate](https://codeclimate.com/github/rafaeljesus/maremar/badges/gpa.svg)](https://codeclimate.com/github/rafaeljesus/maremar)
+Maremar [![Circle CI](https://circleci.com/gh/rafaeljesus/maremar.svg?style=svg)](https://circleci.com/gh/rafaeljesus/maremar) [![Test Coverage](https://codeclimate.com/github/rafaeljesus/maremar/badges/coverage.svg)](https://codeclimate.com/github/rafaeljesus/maremar) [![Code Climate](https://codeclimate.com/github/rafaeljesus/maremar/badges/gpa.svg)](https://codeclimate.com/github/rafaeljesus/maremar)
 ===============
 
 This is app is for my portfolio
