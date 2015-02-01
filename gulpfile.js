@@ -29,16 +29,16 @@ gulp.task('server-tests', ['cover'], function() {
 });
 
 gulp.task('client-tests', function() {
-  return gulp.src('./test/client/**/*[sS]pec.js')
+  return gulp.src('./workaround')
   .pipe(karma({
-    configFile: 'karma.conf.js',
+    configFile: './karma.config.js',
     action: 'run'
   }))
   .once('end', function() {
     process.exit();
-  });
+  })
   .on('error', function(err) {
-    throw err;
+    this.emit('end');
   });
 });
 
@@ -57,5 +57,5 @@ gulp.task('styles', function() {
 });
 
 gulp
-  .task('test', ['server-tests', 'client-tests']);
+  .task('test', ['server-tests', 'client-tests'])
   .task('default', ['lint', 'test', 'scripts', 'styles']);

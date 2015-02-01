@@ -16,6 +16,12 @@
     "describe": false,
     "before": false,
     "beforeEach": false,
-    "afterEach": false
+    "afterEach": false,
+    "inject": false,
+    "chai": false,
+    "angular": false,
+    "window": false,
+    "sinon": false,
+    "moment": false
   }
 }
