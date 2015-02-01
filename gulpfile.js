@@ -15,17 +15,17 @@ gulp.task('lint', function() {
     .pipe(plugins.jshint.reporter('jshint-stylish'));
 });
 
-gulp.task('cover', function() {
+gulp.task('test', function() {
   return gulp.src(['./app/**/*.js', './lib/**/*.js'])
-    .pipe(plugins.istanbul());
-});
-
-gulp.task('test', ['cover'], function() {
-  return gulp.src('./spec/**/*.js')
-    .pipe(plugins.mocha({ timeout: 8000, grep: argv.grep }))
-    .pipe(plugins.istanbul.writeReports())
-    .once('end', function() {
-      process.exit();
+    .pipe(plugins.istanbul())
+    .pipe(plugins.istanbul.hookRequire())
+    .on('finish', function() {
+      gulp.src('./spec/**/*.js')
+        .pipe(plugins.mocha({ timeout: 8000, grep: argv.grep }))
+        .pipe(plugins.istanbul.writeReports())
+        .once('end', function() {
+          process.exit();
+        });
     });
 });
 
