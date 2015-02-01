@@ -1,3 +1,5 @@
+/*jshint -W030 */
+
 'use strict';
 
 var app       = require('../../app')

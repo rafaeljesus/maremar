@@ -22,9 +22,9 @@ gulp.task('cover', function() {
 
 gulp.task('test', ['cover'], function() {
   return gulp.src('./spec/**/*.js')
-    .pipe(plugins.mocha({ timeout: 4000, grep: argv.grep }))
+    .pipe(plugins.mocha({ timeout: 8000, grep: argv.grep }))
     .pipe(plugins.istanbul.writeReports())
-    .once('end', function () {
+    .once('end', function() {
       process.exit();
     });
 });
