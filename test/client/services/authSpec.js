@@ -19,7 +19,6 @@ describe('AuthSpec', function() {
   }));
 
   afterEach(function() {
-    http.verifyNoOutstandingExpectation();
     http.verifyNoOutstandingRequest();
   });
 
@@ -27,7 +26,7 @@ describe('AuthSpec', function() {
     var options = { name: 'valid name', email: 'valid@gmail.com', password: '123456' };
     http.when('POST', '/users').respond(options);
     auth.register(options, function(user) {
-      expect(sessionStorage.currentUser).to.not.be.an('undefined');
+      expect(sessionStorage.currentUser).to.be.ok;
       expect(sessionStorage.currentUser.name).to.equal(options.name);
       expect(auth.isLoggedIn()).to.be.true;
       done();
@@ -39,7 +38,7 @@ describe('AuthSpec', function() {
     var options = { email: 'valid@gmail.com', password: '123456' };
     http.when('POST', '/session').respond(options);
     auth.authenticate(options, function() {
-      expect(sessionStorage.currentUser).to.not.be.an('undefined');
+      expect(sessionStorage.currentUser).to.be.ok;
       expect(sessionStorage.currentUser.name).to.equal(options.name);
       expect(auth.isLoggedIn()).to.be.true;
       done();
@@ -66,7 +65,7 @@ describe('AuthSpec', function() {
     , newPassword = expectedUser.password;
     http.when('PUT', '/users').respond(200, expectedUser);
     auth.changePassword(oldPassword, newPassword, function(user) {
-      expect(user).to.not.be.an('undefined');
+      expect(user).to.be.ok;
       expect(user.password).to.be.equal(expectedUser.password);
       done();
     });

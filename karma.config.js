@@ -27,8 +27,8 @@ module.exports = function(config) {
       'public/bower_components/angular-socket-io/socket.js',
       'public/bower_components/moment/moment.js',
       'public/js/app/mrm.js',
-      'public/js/app/services/**/*.js',
       'public/js/app/controllers/**/*.js',
+      'public/js/app/services/**/*.js',
       'test/client/utils/*.js',
       'test/client/**/*Spec.js',
       'public/js/app/mrm-run.js'
