@@ -31,8 +31,8 @@ module.exports = function(app) {
     },
 
     changePassword: function(req, res) {
-      var userId = req.body.user.id
-      , newPassword = req.body.user.password;
+      var userId = req.body.user.id;
+      var newPassword = req.body.user.password;
       User.changePassword(userId, newPassword, function(err, user) {
         if (err) { return res.json(401, err); }
         res.json(200);

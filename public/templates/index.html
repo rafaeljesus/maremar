@@ -1,132 +1,136 @@
-<div>
-  <header class="header-21">
-    <div class="container">
-      <div class="row">
-        <div class="navbar col-sm-12" role="navigation">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle"></button>
-            <a class="brand" href="#">Startup</a>
-          </div>
-          <div class="navbar-collapse collapse">
-            <ul class="nav">
-              <li class="active"><a href="#">HOME</a>
-              </li>
-              <li><a href="#">WORK</a>
-              </li>
-              <li><a href="#">BLOG</a>
-              </li>
-              <li><a href="#">CONTACT</a>
-              </li>
-            </ul>
-            <div class="navbar-form pull-right">
-              <a class="btn btn-default" href="/entrar">SIGN IN</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
-  <section class="header-21-sub v-center">
-    <div>
-      <div class="background">&nbsp;</div>
-      <div classr"container">
-        <h3><img class="hl" src="../bower_components/common-files/icons/Spaceship@2x.png" width="100" height="100" alt="">Startup Framework</h3>
-        <p class="lead">You have the design, you have the code</p>
-      </div>
-    </div>
-    <a class="control-btn fui-arrow-down" href="#"></a>
-  </section>
-  <div class="delimiter-big"></div>
-</div>
+<div ng-controller="CurrentUserController">
 
-<section class="price-5">
-  <div class="container">
-    <div class="plans">
-      <div class="plan">
-        <div class="title">
-          <div class="price">
-            <small>$</small>
-            0
-          </div>
-          FREE PLAN
-        </div>
-        <div>
-          <div class="description">
-            <div class="description-box">
-              <big>10,000 users</big>
-              Without iconic symbolsreally finish your work - for clearly understand.
+  <div ng-if="!userLoggedIn()">
+    <header class="header-21">
+      <div class="container">
+        <div class="row">
+          <div class="navbar col-sm-12" role="navigation">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle"></button>
+              <a class="brand" href="#">Startup</a>
             </div>
-            <div class="description-box">
-              <big>10 photos per month</big>
-              Without iconic symbolsreally finish your work - for clearly understand.
+            <div class="navbar-collapse collapse">
+              <ul class="nav">
+                <li class="active"><a href="#">HOME</a>
+                </li>
+                <li><a href="#">WORK</a>
+                </li>
+                <li><a href="#">BLOG</a>
+                </li>
+                <li><a href="#">CONTACT</a>
+                </li>
+              </ul>
+              <div class="navbar-form pull-right">
+                <a class="btn btn-default" href="#/entrar">SIGN IN</a>
+              </div>
             </div>
-          </div>
-          <div class="description-more">
-            <span class="fui-cmd"></span>
-            <big>10,000 users</big>
-            <p class="info">Without iconic symbolsreally finish your work - for clearly understand.</p>
-            <a class="btn btn-primary" href="#">Change to this Plan</a>
           </div>
         </div>
       </div>
-      <div class="plan plan-2">
-        <div class="title">
-          <div class="price">
-            <small>$</small>
-            29
-          </div>
-          DEVELOPER PLAN
-        </div>
-        <div>
-          <div class="description">
-            <div class="description-box">
-              <big>Unlimited users</big>
-              Without iconic symbolsreally finish your work - for clearly understand.
-            </div>
-            <div class="description-box">
-              <big>10 photos per month</big>
-              Without iconic symbolsreally finish your work - for clearly understand.
-            </div>
-          </div>
-          <div class="description-more">
-            <span class="fui-cmd"></span>
-            <big>Unlimited users</big>
-            <p class="info">Without iconic symbolsreally finish your work - for clearly understand.</p>
-            <a class="btn btn-primary" href="#">Change to this Plan</a>
-          </div>
+    </header>
+
+    <section class="header-21-sub v-center">
+      <div>
+        <div class="background">&nbsp;</div>
+        <div classr"container">
+          <h3><img class="hl" src="../bower_components/common-files/icons/Spaceship@2x.png" width="100" height="100" alt="">Startup Framework</h3>
+          <p class="lead">You have the design, you have the code</p>
         </div>
       </div>
-      <div class="plan">
-        <div class="title">
-          <div class="price">
-            <small>$</small>
-            50
+      <a class="control-btn fui-arrow-down" href="#"></a>
+    </section>
+    <div class="delimiter-big"></div>
+
+    <section class="price-5">
+      <div class="container">
+        <div class="plans">
+          <div class="plan">
+            <div class="title">
+              <div class="price">
+                <small>$</small>
+                0
+              </div>
+              FREE PLAN
+            </div>
+            <div>
+              <div class="description">
+                <div class="description-box">
+                  <big>10,000 users</big>
+                  Without iconic symbolsreally finish your work - for clearly understand.
+                </div>
+                <div class="description-box">
+                  <big>10 photos per month</big>
+                  Without iconic symbolsreally finish your work - for clearly understand.
+                </div>
+              </div>
+              <div class="description-more">
+                <span class="fui-cmd"></span>
+                <big>10,000 users</big>
+                <p class="info">Without iconic symbolsreally finish your work - for clearly understand.</p>
+                <a class="btn btn-primary" href="#">Change to this Plan</a>
+              </div>
+            </div>
           </div>
-          EXTENDED PLAN
+          <div class="plan plan-2">
+            <div class="title">
+              <div class="price">
+                <small>$</small>
+                29
+              </div>
+              DEVELOPER PLAN
+            </div>
+            <div>
+              <div class="description">
+                <div class="description-box">
+                  <big>Unlimited users</big>
+                  Without iconic symbolsreally finish your work - for clearly understand.
+                </div>
+                <div class="description-box">
+                  <big>10 photos per month</big>
+                  Without iconic symbolsreally finish your work - for clearly understand.
+                </div>
+              </div>
+              <div class="description-more">
+                <span class="fui-cmd"></span>
+                <big>Unlimited users</big>
+                <p class="info">Without iconic symbolsreally finish your work - for clearly understand.</p>
+                <a class="btn btn-primary" href="#">Change to this Plan</a>
+              </div>
+            </div>
+          </div>
+          <div class="plan">
+            <div class="title">
+              <div class="price">
+                <small>$</small>
+                50
+              </div>
+              EXTENDED PLAN
+            </div>
+            <div>
+              <div class="description">
+                <div class="description-box">
+                  <big>50,000 users</big>
+                  Without iconic symbolsreally finish your work - for clearly understand.
+                </div>
+                <div class="description-box">
+                  <big>50 photos per month</big>
+                  Without iconic symbolsreally finish your work - for clearly understand.
+                </div>
+              </div>
+              <div class="description-more">
+                <span class="fui-cmd"></span>
+                <big>50,000 users</big>
+                <p class="info">Without iconic symbolsreally finish your work - for clearly understand.</p>
+                <a class="btn btn-primary" href="#">Change to this Plan</a>
+              </div>
+            </div>
+          </div>
         </div>
-        <div>
-          <div class="description">
-            <div class="description-box">
-              <big>50,000 users</big>
-              Without iconic symbolsreally finish your work - for clearly understand.
-            </div>
-            <div class="description-box">
-              <big>50 photos per month</big>
-              Without iconic symbolsreally finish your work - for clearly understand.
-            </div>
-          </div>
-          <div class="description-more">
-            <span class="fui-cmd"></span>
-            <big>50,000 users</big>
-            <p class="info">Without iconic symbolsreally finish your work - for clearly understand.</p>
-            <a class="btn btn-primary" href="#">Change to this Plan</a>
-          </div>
+        <div class="terms">Be sure to take a look at our
+          <br><a href="#">Terms of Use</a> and <a href="#">Privacy
+            Policy</a>
         </div>
       </div>
-    </div>
-    <div class="terms">Be sure to take a look at our
-      <br><a href="#">Terms of Use</a> and <a href="#">Privacy
-        Policy</a>
-    </div>
+    </section>
   </div>
-</section>
+</div>

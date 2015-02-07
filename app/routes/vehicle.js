@@ -8,4 +8,5 @@ module.exports = function(app) {
   app.get('/vehicles/:id', vehicle.show);
   app.get('/vehicles/image/:file', vehicle.image);
   app.post('/vehicles', vehicle.save);
+
 };

@@ -41,30 +41,33 @@ module.exports = function(app) {
   };
 
   Trip.statics.findAllOfToday = function(cb) {
-    return this.find({ date: { $gte: today() } }, function(err, doc) {
+    var query = { date: { $gte: today() } };
+    return this.find(query, function(err, doc) {
       if (err) { return cb(err); }
       cb(null, doc);
     });
   };
 
   Trip.statics.findAllOfWeek = function(cb) {
-    return this.find({ date: { $gte: today(), $lte: nextWeek() } }, function(err, doc) {
+    var query = { date: { $gte: today(), $lte: nextWeek() } };
+    return this.find(query, function(err, doc) {
       if (err) { return cb(err); }
       cb(null, doc);
     });
   };
 
   Trip.statics.sync = function(trip, cb) {
-    return this.findByIdAndUpdate(trip._id, {
-        $set: {
-          'lastSyncBy': trip.lastSyncBy,
-          'seats': trip.seats,
-          'updatedAt': new Date()
-          }
-        }, function(err, doc) {
-          if (err) { return cb(err); }
-          cb(null, doc);
-        });
+    var mod = {
+      $set: {
+        'lastSyncBy': trip.lastSyncBy,
+        'seats': trip.seats,
+        'updatedAt': new Date()
+      }
+    };
+    return this.findByIdAndUpdate(trip._id, mod, function(err, doc) {
+      if (err) { return cb(err); }
+      cb(null, doc);
+    });
   };
 
   Trip.pre('save', function(next) {

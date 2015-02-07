@@ -34,30 +34,31 @@
 
     <div class="container">
 
-      <div ng-view></div>
-
-      <div class="row" ng-controller="CurrentUserController">
-        <div class="col-md-2" ng-if="userLoggedIn()">
-          <h4 class="text-center">Real Trip</h4><br>
-          <a class="btn btn-embossed btn-primary btn-block" href="/passeios/novo"> Criar Passeio</a><br>
-          <ul class="nav nav-pills nav-stacked">
-            <li><a href="/passeios">Passeios</a></li>
-            <li><a href="/veiculos">Veículos</a></li>
-            <li><a href="#">Pagamentos</a></li>
-            <li><a href="#">Mensagens <span class="navbar-new">1</span></a></li>
-          </ul>
-          <br>
-          <div class="col-md-5">
-            <div ng-controller="SignoutController" ng-click="logout()">
-              <button class="btn btn-embossed btn-defaut" data-toggle="tooltip" data-placement="top" title="Sair"><span class="glyphicon glyphicon-log-out"></span></button>
+      <div class="row">
+        <div ng-controller="CurrentUserController">
+          <div class="col-md-2" ng-if="userLoggedIn()">
+            <h4 class="text-center">Real Trip</h4><br>
+            <a class="btn btn-embossed btn-primary btn-block" href="#/passeios/novo"> Criar Passeio</a><br>
+            <ul class="nav nav-pills nav-stacked">
+              <li><a href="#/passeios">Passeios</a></li>
+              <li><a href="#/veiculos">Veículos</a></li>
+              <li><a href="#">Pagamentos</a></li>
+              <li><a href="#">Mensagens <span class="navbar-new">1</span></a></li>
+            </ul>
+            <br>
+            <div class="col-md-5">
+              <div ng-controller="SignoutController" ng-click="logout()">
+                <button class="btn btn-embossed btn-defaut" data-toggle="tooltip" data-placement="top" title="Sair"><span class="glyphicon glyphicon-log-out"></span></button>
+              </div>
             </div>
-          </div>
-          <div class="col-md-5">
-            <div ng-controller="SettingsController">
-              <button class="btn btn-embossed btn-defaut" data-toggle="tooltip" data-placement="top" title="Configurações"><span class="glyphicon glyphicon-cog"></span></button>
+            <div class="col-md-5">
+              <div ng-controller="SettingsController">
+                <button class="btn btn-embossed btn-defaut" data-toggle="tooltip" data-placement="top" title="Configurações"><span class="glyphicon glyphicon-cog"></span></button>
+              </div>
             </div>
           </div>
         </div>
+        <div ng-view></div>
       </div>
 
       <footer class="footer-7">
@@ -142,6 +143,7 @@
     <script src="js/app/routes/vehicles/edit.js"></script>
 
     <script src="js/app/controllers/main.js"></script>
+    <script src="js/app/controllers/auth/current-user.js"></script>
     <script src="js/app/controllers/profile/settings.js"></script>
     <script src="js/app/controllers/auth/signin.js"></script>
     <script src="js/app/controllers/auth/signup.js"></script>

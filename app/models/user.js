@@ -38,7 +38,8 @@ module.exports = function(app) {
   User.statics.authenticate = function(user, cb) {
     var shaSum = crypto.createHash('sha256');
     shaSum.update(user.password);
-    return this.findOne({ email: user.email, password: shaSum.digest('hex') }, function(err, doc) {
+    var query = { email: user.email, password: shaSum.digest('hex') };
+    return this.findOne(query, function(err, doc) {
       if (err) { return cb(err); }
       cb(null, doc);
     });
@@ -48,7 +49,9 @@ module.exports = function(app) {
     var shaSum = crypto.createHash('sha256');
     shaSum.update(newPassword);
     var hashedPassword = shaSum.digest('hex');
-    return this.update({ _id: userId }, { $set: { password: hashedPassword } }, { upsert: false }, function(err, numberAffected) {
+    var query = { _id: userId };
+    var mod = { $set: { password: hashedPassword } };
+    return this.update(query, mod, {upsert: false}, function(err, numberAffected) {
       if (err) { return cb(err); }
       cb(null, { numberAffected: numberAffected });
     });
