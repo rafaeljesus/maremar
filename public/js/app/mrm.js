@@ -12,7 +12,6 @@ var mrm = angular
   .config(['$routeProvider', '$locationProvider', '$httpProvider', function($routeProvider, $locationProvider, $httpProvider) {
 
     $routeProvider.otherwise({ redirectTo: '/' });
-    //$locationProvider.html5Mode(true);
     $httpProvider.interceptors.push(['$q', '$location', function($q, $location) {
       return {
         responseError: function(response) {

@@ -3,6 +3,7 @@
 mrm.controller('TripsController', ['$scope', '$sessionStorage', 'Trip', 'SyncTrip', function($scope, $sessionStorage, Trip, SyncTrip) {
 
   $scope.trips = {};
+  $scope.criteria = {};
 
   $scope.sync = function(trip, $index) {
     var trip = $scope.trips[trip._id];
@@ -29,15 +30,14 @@ mrm.controller('TripsController', ['$scope', '$sessionStorage', 'Trip', 'SyncTri
     });
   });
 
-  $scope.findAllOfToday = function() {
-    Trip.query({}, function(trips) {
-      findAllCallback(trips);
-    });
-  };
-
-  $scope.findAllOfWeek = function() {
-    Trip.prototype.findAllOfWeek().then(function(res) {
-      findAllCallback(res.data);
+  $scope.search = function() {
+    Trip.query(query(), function(trips) {
+      if (trips.length == 0) return $scope.trips = {};
+      angular.forEach(trips, function(value, key) {
+        value.updatedAt = moment(value.updatedAt).format('h:mm:ss a');
+        $scope.trips[value._id] = value;
+      });
+      renderCheckbox();
     });
   };
 
@@ -45,19 +45,19 @@ mrm.controller('TripsController', ['$scope', '$sessionStorage', 'Trip', 'SyncTri
     return $.isEmptyObject($scope.trips);
   };
 
-  var findAllCallback = function(trips) {
-    if (trips.length == 0) return $scope.trips = {};
-    angular.forEach(trips, function(value, key) {
-      value.updatedAt = moment(value.updatedAt).format('h:mm:ss a');
-      $scope.trips[value._id] = value;
-    });
-    renderCheckbox();
-  };
-
   var renderCheckbox = function() {
     setTimeout(function() {
       $(':checkbox').checkbox();
     }, 500);
+  };
+
+  var query = function() {
+    if (!$scope.criteria.createdAt) return {};
+    return {
+      criteria: {
+        createdAt: new DateSerializer().toServer($scope.criteria.createdAt)
+      }
+    }
   };
 
   setTimeout(function() {

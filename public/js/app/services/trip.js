@@ -12,12 +12,6 @@ mrm.factory('Trip', function Trip($resource, $http) {
     }
   });
 
-  angular.extend(Trip.prototype, {
-    findAllOfWeek: function() {
-      return $http({ method: 'GET', url: '/trips/allOfWeek'});
-    }
-  });
-
   return Trip;
 
 });

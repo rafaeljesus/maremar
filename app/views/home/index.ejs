@@ -17,7 +17,7 @@
     <link href="bower_components/ui-kit/ui-kit-price/css/ui-kit-styles.css" rel="stylesheet">
     <link href="bower_components/ui-kit/ui-kit-footer/css/ui-kit-styles.css" rel="stylesheet">
     <link href="bower_components/select2/select2.css" rel="stylesheet">
-    <link href="bower_components/bootstrap-datepicker/css/datepicker.css" rel="stylesheet">
+    <!--<link href="bower_components/bootstrap-datepicker/css/datepicker.css" rel="stylesheet">-->
     <link href="css/custom-tabs.css" rel="stylesheet">
     <link href="css/mrm.css" rel="stylesheet">
     <link href="css/flat-ui-select2.css" rel="stylesheet">
@@ -106,10 +106,11 @@
     <script src="bower_components/common-files/js/jquery.svg.js"></script>
     <script src="bower_components/common-files/js/jquery.svganim.js"></script>
     <script src="bower_components/common-files/js/jquery.parallax.min.js"></script>
+    <script src="bower_components/datepicker/index.js"></script>
     <script src="bower_components/common-files/js/startup-kit.js"></script>
     <script src="bower_components/select2/select2.js"></script>
     <script src="bower_components/moment/moment.js"></script>
-    <script src="bower_components/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <!--<script src="bower_components/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>-->
     <script src="/socket.io/socket.io.js"></script>
 
     <script src="bower_components/angular/angular.js"></script>
@@ -121,6 +122,9 @@
     <script src="bower_components/angular-ui-select2/src/select2.js"></script>
 
     <script src="js/app/mrm.js"></script>
+
+    <script src="js/app/utils/date-serializer.js"></script>
+    <script src="js/app/utils/date-validator.js"></script>
 
     <script src="js/app/directives/navbar-btn-signin.js"></script>
     <script src="js/app/directives/navbar-btn-signout.js"></script>
@@ -137,10 +141,6 @@
     <script src="js/app/routes/trips/new.js"></script>
     <script src="js/app/routes/trips/edit.js"></script>
     <script src="js/app/routes/trips/view.js"></script>
-    <script src="js/app/routes/vehicles/index.js"></script>
-    <script src="js/app/routes/vehicles/new.js"></script>
-    <script src="js/app/routes/vehicles/view.js"></script>
-    <script src="js/app/routes/vehicles/edit.js"></script>
 
     <script src="js/app/controllers/main.js"></script>
     <script src="js/app/controllers/auth/current-user.js"></script>
@@ -151,15 +151,10 @@
     <script src="js/app/controllers/trips/index.js"></script>
     <script src="js/app/controllers/trips/new.js"></script>
     <script src="js/app/controllers/trips/edit.js"></script>
-    <script src="js/app/controllers/vehicles/index.js"></script>
-    <script src="js/app/controllers/vehicles/new.js"></script>
-    <script src="js/app/controllers/vehicles/view.js"></script>
-    <script src="js/app/controllers/vehicles/edit.js"></script>
 
     <script src="js/app/services/auth.js"></script>
     <script src="js/app/services/session.js"></script>
     <script src="js/app/services/user.js"></script>
-    <script src="js/app/services/vehicle.js"></script>
     <script src="js/app/services/trip.js"></script>
     <script src="js/app/services/sync-trip.js"></script>
 

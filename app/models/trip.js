@@ -8,11 +8,10 @@ module.exports = function(app) {
 
   var Trip = Schema({
     vehicle: {
-      _id: Schema.Types.ObjectId,
-      filename: String,
-      name: String,
-      driver: String,
-      capacity: Number
+      filename: String
+      , name: String
+      , driver: String
+      , capacity: { type: Number, required: true }
     }
     , seats: [{ checked: Boolean, _id: false }]
     , date: Date
@@ -28,11 +27,6 @@ module.exports = function(app) {
     return toDate(now);
   };
 
-  var nextWeek = function() {
-    var nextWeek = moment().add(7, 'd');
-    return toDate(nextWeek);
-  };
-
   var toDate = function(date) {
     var year = date.year()
       , month = date.month()
@@ -40,16 +34,8 @@ module.exports = function(app) {
     return new Date(year, month, day);
   };
 
-  Trip.statics.findAllOfToday = function(cb) {
-    var query = { date: { $gte: today() } };
-    return this.find(query, function(err, doc) {
-      if (err) { return cb(err); }
-      cb(null, doc);
-    });
-  };
-
-  Trip.statics.findAllOfWeek = function(cb) {
-    var query = { date: { $gte: today(), $lte: nextWeek() } };
+  Trip.statics.search = function(cb) {
+    var query = { createdAt: { $gte: today() } };
     return this.find(query, function(err, doc) {
       if (err) { return cb(err); }
       cb(null, doc);

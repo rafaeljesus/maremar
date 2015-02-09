@@ -7,15 +7,16 @@
 
       <div ng-controller="NewTripController" ng-init="allVehicles()">
         <form role="form" name="form" ng-submit="create(form)" novalidate>
-          <div class="form-group" ng-class="{ 'has-success': form.vehicle.$valid && submitted, 'has-error': form.vehicle.$invalid && submitted }">
+          <div class="form-group" ng-class="{ 'has-success': form.name.$valid && submitted, 'has-error': form.name.$invalid && submitted }">
+            <label>Nome Veículo</label>
             <div class="form-group">
-              <select ui-select2 ng-model="trip.vehicle" data-placeholder="Selecione um Veículo">
-                <option value=""></option>
-                <option ng-repeat="vehicle in vehicles" value="{{vehicle._id}}">{{vehicle.name}}</option>
-              </select>
-              <p class="help-block" ng-show="form.vehicle.$error.required && submitted">
-                Veículo é campo obrigatório
-              </p>
+              <input type="text" class="form-control" ng-model="trip.vehicle.name" required name="name" placeholder="Digite o nome do veículo" />
+            </div>
+          </div>
+          <div class="form-group" ng-class="{ 'has-success': form.capacity.$valid && submitted, 'has-error': form.capacity.$invalid && submitted }">
+            <label>Capacidade</label>
+            <div class="form-group">
+              <input type="number" class="form-control" ng-model="trip.vehicle.capacity" required name="capacity" placeholder="Insira a capacidade de lugares do veículo">
             </div>
           </div>
           <div class="form-group" ng-class="{ 'has-success': form.date.$valid && submitted, 'has-error': form.date.$invalid && submitted }">

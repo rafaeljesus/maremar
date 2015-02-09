@@ -1,18 +1,17 @@
-<div ng-controller="TripsController" ng-init="findAllOfToday()">
+<div ng-controller="TripsController" ng-init="search()">
   <div class="col-md-8">
-    <div class="col-md-6">
+    <div class="col-md-4">
       <div class="default-header">
-        <h1><span class="fui-location"></span> Passeios de Hoje</h1>
+        <h2>Passeios</h2>
       </div>
     </div>
-    <div class="col-md-6">
-      <div class="dropdown pull-right">
-        <button class="btn btn-primary btn-header dropdown-toggle" data-toggle="dropdown"> Filtrar <span class="caret"></span></button>
-        <span class="dropdown-arrow"></span>
-        <ul class="dropdown-menu">
-          <li><a href="javascript:voip(0);" ng-click="findAllOfToday()">Passeios de Hoje</a></li>
-          <li><a href="javascript:void(0);" ng-click="findAllOfWeek()">Passeios da Semana</a></li>
-        </ul>
+    <div class="col-md-8">
+      <div class="pull-right">
+        <div class="col-md-8">
+          <label><span class="error-icon">* </span>Data Passeio</label>
+          <input type="text" ng-model="criteria.createdAt" class="form-control" date-picker />
+        </div>
+        <button class="btn btn-primary" ng-click="search()" style="margin-top: 1.5em">Search</button>
       </div>
     </div>
   </div>
@@ -31,7 +30,7 @@
       <blockquote ng-repeat="trip in trips">
         <div class="media">
           <a class="pull-left" href="javascript:void(0);">
-            <img class="media-object vehicle-avatar img-circle" ng-src="{{trip.vehicle && 'http://localhost:3000/vehicles/image/' + trip.vehicle.filename || ''}}">
+            <img class="media-object vehicle-avatar img-circle" ng-src="{{trip.vehicle && 'http://www.gravatar.com/avatar/123'}}">
           </a>
           <div class="media-body">
             <h5>

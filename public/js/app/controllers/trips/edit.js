@@ -1,6 +1,6 @@
 'use strict';
 
-mrm.controller('EditTripController', ['$scope', '$routeParams', '$location', 'Trip', 'Vehicle', function($scope, $routeParams, $location, Trip, Vehicle) {
+mrm.controller('EditTripController', ['$scope', '$routeParams', '$location', 'Trip', function($scope, $routeParams, $location, Trip) {
 
   $scope.vehicles = {};
 
@@ -10,7 +10,7 @@ mrm.controller('EditTripController', ['$scope', '$routeParams', '$location', 'Tr
     $scope.trip.vehicle = $scope.vehicles[$scope.trip.vehicle._id];
     var trip = new Trip({ trip: $scope.trip });
     trip.$update({ id: $routeParams.id }).then(function(trip) {
-      $location.path('/passeios');
+      $location.path('#/passeios');
     }).catch(function(err) {
       err = err.data;
     });
@@ -20,18 +20,6 @@ mrm.controller('EditTripController', ['$scope', '$routeParams', '$location', 'Tr
     $('.datepicker').datepicker();
     trip.date = moment(trip.date).format('DD/MM/YYYY');
     $scope.trip = trip;
-  });
-
-  Vehicle.query({}, function(vehicles) {
-    angular.forEach(vehicles, function(value, key) {
-      $scope.vehicles[value._id] = {
-        _id: value._id,
-        name: value.name,
-        driver: value.driver,
-        capacity: value.capacity,
-        filename: value.picture.filename
-      };
-    });
   });
 
 }]);
