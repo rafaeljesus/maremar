@@ -6,10 +6,8 @@ mrm.factory('Trip', function Trip($resource, $http) {
     id: '@id'
   }, {
     update: { method: 'PUT' },
-    get: {
-      method: 'GET',
-      params: { id: 'me' }
-    }
+    get: { method: 'GET', params: { id: 'me' } },
+    query: { method: 'GET', isArray: true, url: '/trips/search' }
   });
 
   return Trip;

@@ -30,6 +30,7 @@ module.exports = function(config) {
       'public/js/app/controllers/**/*.js',
       'public/js/app/services/**/*.js',
       'test/client/utils/*.js',
+      'test/client/fixtures/*.js',
       'test/client/**/*Spec.js',
       'public/js/app/mrm-run.js'
     ],

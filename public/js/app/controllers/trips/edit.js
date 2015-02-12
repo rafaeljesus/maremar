@@ -17,7 +17,6 @@ mrm.controller('EditTripController', ['$scope', '$routeParams', '$location', 'Tr
   };
 
   Trip.get({ id: $routeParams.id }, function(trip) {
-    $('.datepicker').datepicker();
     trip.date = moment(trip.date).format('DD/MM/YYYY');
     $scope.trip = trip;
   });

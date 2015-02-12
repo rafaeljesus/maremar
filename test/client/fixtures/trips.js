@@ -1,0 +1,57 @@
+window.tripsFixture = [
+  {
+    "_id":"54d691241b8b887c098ac779",
+    "createdAt":"2015-02-08T14:56:48.288Z",
+    "updatedAt":"2015-02-08T15:12:31.823Z",
+    "date":"2015-02-07T00:00:00.000Z",
+    "startTime":"09:00",
+    "endTime":"18:00",
+    "__v":0,
+    "lastSyncBy":{
+      "name":"Rafael Jesus",
+      "email":"rafaelljesus86@gmail.com"
+    },
+    "seats":[
+      {
+        "checked":false
+      },
+      {
+        "checked":false
+      },
+      {
+        "checked":false
+      },
+      {
+        "checked":false
+      },
+      {
+        "checked":false
+      },
+      {
+        "checked":false
+      },
+      {
+        "checked":false
+      },
+      {
+        "checked":false
+      },
+      {
+        "checked":false
+      },
+      {
+        "checked":false
+      },
+      {
+        "checked":false
+      },
+      {
+        "checked":false
+      }
+    ],
+    "vehicle":{
+      "name":"Off Road ( LandRover )",
+      "capacity":12
+    }
+  }
+];

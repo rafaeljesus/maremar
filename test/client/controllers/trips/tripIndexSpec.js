@@ -6,7 +6,7 @@ var expect = chai.expect;
 
 describe('TripsControllerSpec', function() {
 
-  var vehicle = { _id: '12345678', name: 'jippe', driver: 'driver test', capacity: 12, picture: { filename: 'someimage' } }
+  var vehicle = { name: 'vehicleTest', driver: 'magrão', capacity: 12 }
     , controller, rootScope, scope, location, http, sessionStorage, syncTrip;
 
   beforeEach(function() {
@@ -30,34 +30,12 @@ describe('TripsControllerSpec', function() {
     http.verifyNoOutstandingRequest();
   });
 
-  it('should find all trips of current date', function(done) {
-    var trips = [{
-      vehicle: vehicle._id,
-      date: new Date(),
-      startTime: new Date(),
-      endTime: new Date(),
-      lastSyncBy: { name: 'userTest', email: 'userTestEmail' }
-    }];
-    http.when('GET', '/trips').respond(200, trips);
-    scope.findAllOfToday();
+  it('when search trips by criteria then return all trips', function(done) {
+    http.when('GET', '/trips/search').respond(200, tripsFixture);
+    scope.search();
     http.flush();
     done();
-    expect(scope.isTripsEmpty()).to.be(false);
-  });
-
-  it('should find all trips between current date until next week', function(done) {
-    var trips = [{
-      vehicle: vehicle._id,
-      date: moment().add('d', 7),
-      startTime: new Date(),
-      endTime: new Date(),
-      lastSyncBy: { name: 'userTest', email: 'userTestEmail' }
-    }];
-    http.when('GET', '/trips/allOfWeek').respond(200, trips);
-    scope.findAllOfWeek();
-    http.flush();
-    done();
-    expect(scope.isTripsEmpty()).to.be(false);
+    expect(scope.isTripsEmpty()).to.beFalsy();
   });
 
   it('when I do book a seat then a sync command should be sent to server', function(done) {
@@ -65,7 +43,7 @@ describe('TripsControllerSpec', function() {
     var index = 0
       , trip = {
           _id: 12345678,
-          vehicle: vehicle._id,
+          vehicle: vehicle,
           date: new Date(),
           startTime: new Date(),
           endTime: new Date(),
@@ -81,7 +59,7 @@ describe('TripsControllerSpec', function() {
   it('when sync-server event received form then update my trips page', function(done) {
     var currentTrip = {
       _id: 12345678,
-      vehicle: vehicle._id,
+      vehicle: vehicle,
       date: new Date(),
       startTime: new Date(),
       endTime: new Date(),
@@ -89,7 +67,7 @@ describe('TripsControllerSpec', function() {
     };
     var newTrip = {
       _id: '12345678',
-      vehicle: vehicle._id,
+      vehicle: vehicle,
       date: new Date(),
       startTime: new Date(),
       endTime: new Date(),

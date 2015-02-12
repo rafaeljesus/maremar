@@ -14,8 +14,7 @@ module.exports = function(app) {
     },
 
     search: function(req, res) {
-      var query = req.body.criteria;
-      Trip.search(query, function(err, doc) {
+      Trip.search(req.query, function(err, doc) {
         if (err) { return res.json(500, err); }
         res.json(doc);
       });

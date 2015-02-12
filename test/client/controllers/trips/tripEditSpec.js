@@ -28,10 +28,10 @@ describe('EditTripControllerSpec', function() {
   });
 
   it('when I submit new values then I successfully update trip', function(done) {
-    var vehicle = { _id: '12345678', name: 'jippe', driver: 'driver test', capacity: 12, picture: { filename: 'someimage' } };
+    var vehicle = { name: 'vehicleTest', driver: 'magrão', capacity: 12 };
     var trip = {
       _id: '87654321',
-      vehicle: vehicle._id,
+      vehicle: vehicle,
       date: new Date(),
       startTime: new Date(),
       endTime: new Date(),
@@ -44,13 +44,11 @@ describe('EditTripControllerSpec', function() {
     scope.trip = trip;
     http.when('PUT', '/trips').respond(200, expectedTrip);
     http.when('GET', '/trips').respond(200, trip);
-    http.when('GET', '/vehicles').respond(200, [vehicle]);
     scope.update({ $valid: true });
     http.flush();
     done();
     expect(window.location.hash).to.be.equal('/passeios');
-    expect(scope.trip._id).to.not.be.undefined;
-    expect(scope.vehicles).to.not.be.empty;
+    expect(scope.trip._id).to.be.ok;
   });
 
 });

@@ -2,9 +2,9 @@
 
 module.exports = function(app) {
 
-  var db = require('../../lib/db-connect')()
-  , Schema = require('mongoose').Schema
-  , moment = require('moment');
+  var db            = require('../../lib/db-connect')()
+  , Schema          = require('mongoose').Schema
+  , CriteriaBuilder = require('./criteria-builder');
 
   var Trip = Schema({
     vehicle: {
@@ -22,20 +22,8 @@ module.exports = function(app) {
     , updatedAt: Date
   });
 
-  var today = function() {
-    var now = new moment();
-    return toDate(now);
-  };
-
-  var toDate = function(date) {
-    var year = date.year()
-      , month = date.month()
-      , day = date.date();
-    return new Date(year, month, day);
-  };
-
-  Trip.statics.search = function(cb) {
-    var query = { createdAt: { $gte: today() } };
+  Trip.statics.search = function(criteria, cb) {
+    var query = CriteriaBuilder.build(criteria);
     return this.find(query, function(err, doc) {
       if (err) { return cb(err); }
       cb(null, doc);
