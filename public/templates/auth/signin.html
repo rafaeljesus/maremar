@@ -5,6 +5,13 @@
 
   <div class="col-md-4 text-center" style="margin-top: 10%;">
     <div ng-controller="SigninController">
+      <div class="alert alert-danger" role="alert" ng-if="errors">
+        <button type="button" class="close" data-dismiss="alert">
+          <span aria-hidden="true">&times;</span>
+          <span class="sr-only">Close</span>
+        </button>
+        <span ng-bind="errors.message"></span>
+      </div>
       <form role="form" name="signinForm" ng-submit="authenticate(signinForm)" novalidate>
         <div class="form-group" ng-class="{ 'has-success': signinForm.email.$valid && submitted, 'has-error': signinForm.email.$invalid && submitted }">
           <div class="form-group">

@@ -9,10 +9,7 @@
         <form role="form" name="form" ng-submit="update(form)" novalidate>
           <div class="form-group" ng-class="{ 'has-success': form.vehicle.$valid && submitted, 'has-error': form.vehicle.$invalid && submitted }">
             <div class="form-group">
-              <select ui-select2="{ allowClear: true }" ng-model="trip.vehicle._id" name="vehicle" data-placeholder="Selecione um Veículo" required>
-                <option value=""></option>
-                <option ng-repeat="vehicle in vehicles" value="{{vehicle._id}}">{{vehicle.name}}</option>
-              </select>
+              <input type="text" class="form-control" ng-model="trip.vehicle.name" required name="name" placeholder="Digite o nome do veículo" />
               <p class="help-block" ng-show="form.vehicle.$error.required && submitted">
                 Veículo é campo obrigatório
               </p>
@@ -21,7 +18,7 @@
           <div class="form-group" ng-class="{ 'has-success': form.date.$valid && submitted, 'has-error': form.date.$invalid && submitted }">
             <label>Data</label>
             <div class="form-group">
-              <input type="text" class="form-control datepicker" value="{{trip.date}}" ng-model="trip.date" required name="date">
+              <input type="text" class="form-control" date-picker value="{{trip.date}}" ng-model="trip.date" required name="date">
               <p class="help-block" ng-show="(form.date.$error.minlength || form.date.$error.required) && submitted">
                 Data do Passeio é campo obrigatório
               </p>

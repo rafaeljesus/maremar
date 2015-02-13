@@ -2,7 +2,7 @@ mrm.directive('navbarVertical', function($compile, Auth) {
 
   var template =
     '<div class="col-md-2">' +
-      '<h4 class="text-center">Real Trip</h4><br>' +
+      '<h3><img class="hl" src="../bower_components/common-files/icons/Spaceship@2x.png" width="100" height="100" alt="">Real Trip</h3><br>' +
       '<a class="btn btn-embossed btn-primary btn-block" href="/passeios/novo"> Criar Passeio</a><br>' +
       '<ul class="nav nav-pills nav-stacked">' +
         '<li><a href="/passeios">Passeios</a></li>' +

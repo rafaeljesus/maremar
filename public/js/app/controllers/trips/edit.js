@@ -10,14 +10,14 @@ mrm.controller('EditTripController', ['$scope', '$routeParams', '$location', 'Tr
     $scope.trip.vehicle = $scope.vehicles[$scope.trip.vehicle._id];
     var trip = new Trip({ trip: $scope.trip });
     trip.$update({ id: $routeParams.id }).then(function(trip) {
-      $location.path('#/passeios');
+      $location.path('/passeios');
     }).catch(function(err) {
       err = err.data;
     });
   };
 
   Trip.get({ id: $routeParams.id }, function(trip) {
-    trip.date = moment(trip.date).format('DD/MM/YYYY');
+    trip.date = new DateSerializer().toClient(trip.date);
     $scope.trip = trip;
   });
 

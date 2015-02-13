@@ -2,18 +2,19 @@
 
 mrm.controller('SigninController', ['$scope', 'Auth', '$location', function($scope, Auth, $location) {
 
+  $scope.errors;
+
   $scope.authenticate = function(form) {
     $scope.submitted = true;
     if (!form.$valid) return;
     Auth.authenticate(serializeData()).then(function() {
       $location.path('/passeios');
     }).catch(function(err) {
-      err = err.data;
-      $scope.errors.other = err.message;
+      $scope.errors = err.data;
     });
   };
 
-  var serializeData = function() {
+  function serializeData() {
     return {
       user: {
         email: $scope.user.email,

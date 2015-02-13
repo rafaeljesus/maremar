@@ -4,6 +4,9 @@
 .container {
   /* margin-top: 4%; */
 }
+.vertical-logo {
+  margin-left: 1.2em;
+}
 .btn-header {
   padding: 18px 20px;
   font-size: 22px;

@@ -52,7 +52,7 @@ module.exports = function(app) {
     }
     if (this.seats.length === 0) {
       for (var i = 0; i < this.vehicle.capacity; ++i) {
-        this.seats.push({ checked: false });
+        this.seats.push({ checked: true });
       }
     }
     next();

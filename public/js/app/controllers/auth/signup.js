@@ -6,7 +6,7 @@ mrm.controller('SignupController', ['$scope', 'Auth', '$location', function($sco
     $scope.submitted = true;
     if (!form.$valid) return;
     Auth.register(serializeData()).then(function() {
-      $location.path('/home');
+      $location.path('/trips');
     }).catch(function(err) {
       err = err.data;
     });

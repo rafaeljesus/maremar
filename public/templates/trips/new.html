@@ -22,7 +22,7 @@
           <div class="form-group" ng-class="{ 'has-success': form.date.$valid && submitted, 'has-error': form.date.$invalid && submitted }">
             <label>Data</label>
             <div class="form-group">
-              <input type="date" class="form-control" ng-model="trip.date" required name="date">
+              <input type="text" ng-model="trip.date" name="date" class="form-control" date-picker required />
               <p class="help-block" ng-show="(form.date.$error.minlength || form.date.$error.required) && submitted">
                 Data do Passeio é campo obrigatório
               </p>
