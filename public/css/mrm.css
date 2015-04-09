@@ -4,6 +4,10 @@
 .container {
   /* margin-top: 4%; */
 }
+.seats-check {
+  display: inline-flex;
+  padding: 10px;
+}
 .vertical-logo {
   margin-left: 1.2em;
 }

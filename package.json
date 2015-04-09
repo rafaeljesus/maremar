@@ -9,7 +9,7 @@
   "private": false,
   "scripts": {
     "start": "node app.js",
-    "test": "gulp lint test"
+    "test": "NODE_ENV=test gulp lint test"
   },
   "dependencies": {
     "static-favicon": "~1.0.0",
